@@ -1,15 +1,14 @@
-import React from "react";
 import "./App.css";
-
-import AddProduct from "./components/AdminProduct/AddProduct";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./components/Register";
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <AddProduct />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 
