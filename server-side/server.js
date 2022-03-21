@@ -13,6 +13,10 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello from Node server👋🏻" });
 });
 
+// hämta all routes
+const products = require("./routes/productRoute");
+app.use("/product", products);
+
 // Db connection
 const db = async () => {
   try {
