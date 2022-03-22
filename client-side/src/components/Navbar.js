@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <Link to="/register">REGISTER</Link>
-      <Link to="/">SIGN IN</Link>
+      <Link to="/login">SIGN IN</Link>
       <Link to="/">
         <IoCartOutline />
       </Link>
