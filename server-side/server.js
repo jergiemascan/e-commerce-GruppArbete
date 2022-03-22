@@ -18,7 +18,7 @@ const products = require("./routes/productRoute");
 app.use("/product", products);
 
 const userAuth = require("./routes/userRoute");
-app.use("/register", userAuth);
+app.use("/", userAuth);
 
 // Db connection
 const db = async () => {
