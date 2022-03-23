@@ -17,6 +17,9 @@ app.get("/", (req, res) => {
 const products = require("./routes/productRoute");
 app.use("/product", products);
 
+const userAuth = require("./routes/userRoute");
+app.use("/", userAuth);
+
 // Db connection
 const db = async () => {
   try {

@@ -11,7 +11,7 @@
 html {
   margin: 0;
 }
-bod {
+body {
   font-family: "Urbanist", Sans-Serif;
 }
 
@@ -22,7 +22,102 @@ bod {
   padding: 1rem 2rem;
 }
 
+
 .shopping {
   display: grid;
   justify-content: center;
+
+a {
+  text-decoration: none;
+}
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.modal {
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+/* landing-page */
+.left {
+  display: flex;
+  padding-left: 15rem;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  padding: 16px 0;
+  border-radius: 25px;
+  border: none;
+  background-color: green;
+  color: #fff;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn-cart {
+  width: 12%;
+  height: 30%;
+  margin-right: 15px;
+  color: #ffff;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 2rem;
+  padding: 1rem 2rem;
+  height: 8vw;
+  background-color: #ecf0fa;
+  /* background-color: #bfd1ff; */
+}
+
+.main {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  font-size: 20px;
+  background-color: #f7f4eb;
+  overflow-x: hidden;
+}
+
+/* footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  height: 25vh;
+}
+.footer {
+  margin-top: 40vh;
 }
