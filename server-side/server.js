@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 // hämta all routes
 const products = require("./routes/productRoute");
-app.use("/product", products);
+app.use("/", products);
 
 const userAuth = require("./routes/userRoute");
 app.use("/", userAuth);

@@ -11,6 +11,12 @@ const productSchema = new mongoose.Schema({
     trim: true,
     required: [true, "Please enter price"],
   },
+  desc: {
+    type: String,
+    trim: true,
+    required: [true, "desc"],
+  },
+
   photo: {
     type: String,
     // required: [true,'Please add a product photo']
