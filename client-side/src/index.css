@@ -22,7 +22,6 @@ body {
   padding: 1rem 2rem;
 }
 
-
 .shopping {
   display: grid;
   justify-content: center;
@@ -120,5 +119,5 @@ a {
   height: 25vh;
 }
 .footer {
-  margin-top: 40vh;
+  margin-top: 15vh;
 }

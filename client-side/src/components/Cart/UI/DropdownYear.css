@@ -1,0 +1,40 @@
+.dropdown-year {
+  width: 140px;
+  margin: 5px auto;
+  user-select: none;
+  position: relative;
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
+
+.dropdown-year .dropdown-year-btn {
+  padding: 10px;
+  background: #fff;
+  border: 2px solid rgb(18, 17, 19);
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown-year .dropdown-years {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #333;
+  width: 95%;
+}
+
+.dropdown-year .dropdown-years .dropdown-year {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-year .dropdown-years .dropdown-year:hover {
+  background: #f4f4f4;
+}

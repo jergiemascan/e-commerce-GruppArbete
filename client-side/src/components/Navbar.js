@@ -7,6 +7,7 @@ const Navbar = () => {
     <nav className="nav">
       <Link to="/register">REGISTER</Link>
       <Link to="/login">SIGN IN</Link>
+      <Link to="/checkout">CHECKOUT</Link>
       <Link to="/">
         <IoCartOutline />
       </Link>
