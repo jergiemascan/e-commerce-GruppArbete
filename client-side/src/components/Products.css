@@ -1,0 +1,11 @@
+.product-wrapper {
+  width: 800px;
+}
+.product-container {
+  display: flex;
+}
+
+.product-image {
+  height: 300px;
+  cursor: pointer;
+}

@@ -20,12 +20,17 @@ module.exports.createProduct = catchAsync(async (req, res) => {
   return;
 });
 
-module.exports.getProduct =  catchAsync(async (req, res) => {
-      try {
-      res.json(await productSchema.find());
-  } catch(error) {
-      res.json({message: error});
+module.exports.getProducts = catchAsync(async (req, res) => {
+  try {
+    res.json(await productSchema.find());
+  } catch (error) {
+    res.json({ message: error });
   }
 });
-
-
+module.exports.getProduct = catchAsync(async (req, res) => {
+  try {
+    res.json(await productSchema.findById(req.params.postId));
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
