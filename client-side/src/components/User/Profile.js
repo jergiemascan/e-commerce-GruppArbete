@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import History from "../User/History";
 
 const Profile = (props) => {
-  const [isClick, setIsClick] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   return (
     <div
       className="dropdown"
-      onMouseEnter={(e) => setIsClick(!isClick)}
+      onMouseEnter={(e) => setIsHover(!isHover)}
       onMouseLeave={(e) => {
-        setIsClick(false);
+        setIsHover(false);
       }}
     >
       <div className="dropdown-icon">
         <IoPersonOutline />
       </div>
-      {isClick && (
+      {isHover && (
         <ul className="dropdown-content">
-          <li className="dropdown-item">History</li>
+          <li className="dropdown-item" onClick={props.onShowHist}>
+            History
+          </li>
           <li className="dropdown-item">Sign Out</li>
         </ul>
       )}

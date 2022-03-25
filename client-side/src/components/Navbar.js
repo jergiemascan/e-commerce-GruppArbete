@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
-import Profile from "./Profile";
+import Profile from "./User/Profile";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav className="nav">
       <Link to="/">
-        <Profile />
+        <Profile onShowHist={props.onShow} />
       </Link>
       <Link to="/register">REGISTER</Link>
       <Link to="/login">SIGN IN</Link>
