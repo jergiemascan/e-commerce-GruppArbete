@@ -4,22 +4,33 @@ import { useParams } from "react-router-dom";
 function Product() {
   let { id } = useParams();
   const [product, setProduct] = useState([]);
-  useEffect(() => {
-    async function fetchProductData() {
-      try {
-        const response = await fetch(`http://localhost:3001/products/${id}`);
-        let product = await response.json();
-        setProduct(product);
-        console.log(product);
-      } catch (err) {
-        console.log(err);
-      }
+  const fetchProduct = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/products/${id}`);
+      let product = await response.json();
+      setProduct([product]);
+    } catch (err) {
+      console.log(err);
     }
-    fetchProductData();
+  };
+
+  useEffect(() => {
+    fetchProduct();
   }, []);
+
   return (
     <div>
-      <div>Hej</div>
+      {product.map((product) => {
+        return (
+          <div key={product._id}>
+            <img src={`../assets/${product.photo}`} alt="Supplement" />
+            <h1>{product.name}</h1>
+            <h2>{product.price}:-</h2>
+            <h4>{product.desc}</h4>
+            <button type="submit">Add to cart</button>
+          </div>
+        );
+      })}
     </div>
   );
 }

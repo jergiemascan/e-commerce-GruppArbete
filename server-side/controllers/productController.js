@@ -29,7 +29,7 @@ module.exports.getProducts = catchAsync(async (req, res) => {
 });
 module.exports.getProduct = catchAsync(async (req, res) => {
   try {
-    res.json(await productSchema.findById(req.params.postId));
+    res.json(await productSchema.findById(req.params.id));
   } catch (error) {
     res.json({ message: error });
   }

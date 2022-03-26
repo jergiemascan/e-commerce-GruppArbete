@@ -35,7 +35,6 @@ function Products() {
             <h2>{product.price}:-</h2>
             <h3>{product.desc.slice(0, 50)}.</h3>
             <button type="submit">Add to cart</button>
-
             <Link to={`/products/${product._id}`}>Info</Link>
           </div>
         ))}
