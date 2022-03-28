@@ -22,10 +22,13 @@ body {
   padding: 1rem 2rem;
 }
 
+
 .shopping {
   display: grid;
   justify-content: center;
 }
+
+
 
 a {
   text-decoration: none;
