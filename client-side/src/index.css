@@ -32,6 +32,12 @@ body {
 
 a {
   text-decoration: none;
+  padding: 10px;
+}
+li {
+  list-style: none;
+  color: #000;
+  font-family: inherit;
 }
 /* Modal */
 
@@ -60,7 +66,7 @@ a {
 /* landing-page */
 .left {
   display: flex;
-  padding-left: 15rem;
+  padding-left: 5rem;
 }
 .right {
   display: flex;
@@ -92,10 +98,10 @@ a {
 .nav {
   display: flex;
   justify-content: flex-end;
-
+  align-items: center;
   gap: 2rem;
   padding: 1rem 2rem;
-  height: 8vw;
+  height: 4vw;
   background-color: #ecf0fa;
   /* background-color: #bfd1ff; */
 }
@@ -107,6 +113,33 @@ a {
   font-size: 20px;
   background-color: #f7f4eb;
   overflow-x: hidden;
+  position: relative;
+}
+@media only screen and (max-width: 1580px) {
+  .main {
+    gap: 2rem;
+  }
+
+  .left {
+    padding-left: 0px;
+  }
+}
+@media only screen and (max-width: 1430px) {
+  .main {
+    gap: 2rem;
+  }
+  .bild1 {
+    max-width: 50%;
+  }
+}
+@media only screen and (max-width: 1270px) {
+  .bild1 {
+    max-width: 45%;
+  }
+
+  .right {
+    width: 70%;
+  }
 }
 
 /* footer */
@@ -123,4 +156,77 @@ a {
 }
 .footer {
   margin-top: 40vh;
+}
+
+/* profile dropdown */
+
+.dropdown {
+  position: relative;
+}
+.dropdown-icon {
+  font-size: 20px;
+  padding: 10px 15px 0 15px;
+}
+
+.dropdown-content {
+  position: absolute;
+  padding: 30px 10px;
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #1a1a1a;
+  margin-left: -9rem;
+  top: calc(100%-2px);
+  z-index: 10;
+}
+.dropdown-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.dropdown .dropdown-content .dropdown-item {
+  padding: 10px;
+  transition: all 0.2s;
+}
+.dropdown .dropdown-content .dropdown-item:hover {
+  /* background-color: #f4f6f3; */
+  background-color: #c6d8c0;
+}
+
+/* cta */
+.cta {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  transform: translate(-5%, -50%);
+  max-width: 105rem;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 8rem 0.5rem rgba(0, 0, 0, 0.15);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+.closeModal {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+/* history */
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 12px;
+}
+.orderH2 {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }

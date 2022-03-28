@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
+const catchAsync = require("../utility/catchAsync");
+const usersController = require("../controllers/usersController");
 
 router.post("/register", async (req, res) => {
   try {

@@ -6,6 +6,8 @@ import Products from "./components/Products";
 import Product from "./components/Product";
 import ShoppingCart from "./components/ShoppingCart";
 import "./index.css";
+import ErrorPage from "./components/ErrorPage";
+import Profile from "./components/User/Profile";
 
 function App() {
   return (
@@ -17,6 +19,11 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/Cart" element={<ShoppingCart />} />
+        <Route path="/*" element={<ErrorPage />} />
+        {/* <Route path="/user" element={""}> */}
+        <Route path="/profile" element={<Profile />} />
+
+        {/* </Route> */}
       </Routes>
     </Router>
   );
