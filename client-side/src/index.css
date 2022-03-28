@@ -165,7 +165,7 @@ li {
   background-color: #fff;
   width: 200px;
   height: 200px;
-  border: 2px solid #1a1a1a;
+  border: 1px solid #1a1a1a;
   margin-left: -9rem;
   top: calc(100%-2px);
   z-index: 10;
@@ -185,7 +185,6 @@ li {
 }
 
 /* cta */
-
 .cta {
   position: absolute;
   top: 50%;
@@ -200,19 +199,25 @@ li {
   border-radius: 5px;
   box-shadow: 0 3rem 8rem 0.5rem rgba(0, 0, 0, 0.15);
   min-height: 50vh;
+  display: flex;
+  flex-direction: column;
 }
 .closeModal {
   font-size: 2rem;
   cursor: pointer;
+  margin-left: auto;
 }
 /* history */
 .history {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
+  font-size: 12px;
 }
 .orderH2 {
+  display: flex;
+  justify-content: center;
   text-transform: uppercase;
   font-weight: 400;
+  margin-bottom: 1rem;
 }
