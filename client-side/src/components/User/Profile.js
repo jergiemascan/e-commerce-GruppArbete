@@ -19,6 +19,7 @@ const Profile = (props) => {
       </div>
       {isHover && (
         <ul className="dropdown-content">
+          <li className="dropdown-item">Jiji Mascan</li>
           <li className="dropdown-item" onClick={props.onShowHist}>
             History
           </li>
