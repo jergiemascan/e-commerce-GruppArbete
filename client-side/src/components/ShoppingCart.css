@@ -1,0 +1,10 @@
+.asd {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+.shopping {
+    display: grid;
+    justify-content: center;
+  }
