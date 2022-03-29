@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { Store } from "../Store";
+import axios from "axios";
+import Navbar from "./Navbar";
 
 function Product() {
   let { id } = useParams();
@@ -18,8 +21,18 @@ function Product() {
     fetchProduct();
   }, []);
 
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
+  const addToCartHandler = () => {
+    ctxDispatch({
+      type: "CART_ADD_ITEM",
+      payload: product,
+    });
+  };
+
   return (
     <div>
+      <Navbar />;
       {product.map((product) => {
         return (
           <div key={product._id}>
@@ -27,7 +40,9 @@ function Product() {
             <h1>{product.name}</h1>
             <h2>{product.price}:-</h2>
             <h4>{product.desc}</h4>
-            <button type="submit">Add to cart</button>
+            <button onClick={addToCartHandler} type="submit">
+              Add to cart
+            </button>
           </div>
         );
       })}
