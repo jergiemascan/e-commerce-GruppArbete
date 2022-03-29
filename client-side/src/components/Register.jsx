@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 function Register() {
   const {
@@ -24,41 +25,29 @@ function Register() {
 
   // Error message I used in case registration didn't work
   const [message, setMessage] = useState("");
+  const redirect = useNavigate();
 
   // Temporary function just to test form vaildation
   const onSubmit = async (data) => {
-    console.log(data);
     try {
-      const response = await fetch("http://localhost:3001/register", {
-        method: "POST",
-        body: JSON.stringify({
-          firstname: data.firstName,
-          lastname: data.lastName,
-          email: data.email,
-          password: data.password,
-          confirmPassword: data.confirmPassword,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const response = await Axios.post("http://localhost:3001/user/register", {
+        firstname: data.firstName,
+        lastname: data.lastName,
+        email: data.email,
+        password: data.password,
+        confirmPassword: data.confirmPassword,
       });
+      if (response?.data?.status === "success") {
+        localStorage.setItem("isAuthenticated", true);
+        setTimeout(() => {
+          redirect("/products");
+        }, 1000);
+        console.log("Registered!");
+      }
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
-
-    // Ska göra med Axios, ville bara see varför den inte funkar :(
-
-    // try {
-    //   axios.post("/register", {
-    //     firstName: data.firstName,
-    //     lastName: data.lastName,
-    //     email: data.email,
-    //     password: data.password,
-    //     confirmPassword: data.confirmPassword,
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
   };
 
   return (
@@ -66,7 +55,7 @@ function Register() {
       <h2>Register here!</h2>
       <p>{message}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <p>{errors.firstName?.message}</p>
+        <p className="errors">{errors.firstName?.message}</p>
         <input
           {...register("firstName", {
             required: "Write your first name",
@@ -79,7 +68,7 @@ function Register() {
           placeholder="First name"
           autoComplete="off"
         />
-        <p>{errors.lastName?.message}</p>
+        <p className="errors">{errors.lastName?.message}</p>
         <input
           {...register("lastName", {
             required: "Write your last name",
@@ -92,7 +81,7 @@ function Register() {
           placeholder="Last name"
           autoComplete="off"
         />
-        <p>{errors.email?.message}</p>
+        <p className="errors">{errors.email?.message}</p>
         <input
           {...register("email", {
             required: "Write your email",
@@ -106,7 +95,7 @@ function Register() {
           placeholder="Email"
           autoComplete="off"
         />
-        <p>{errors.password?.message}</p>
+        <p className="errors">{errors.password?.message}</p>
         <input
           {...register("password", {
             required: "Write your password",
@@ -127,7 +116,7 @@ function Register() {
           placeholder="Password"
           autoComplete="off"
         />
-        <p>{errors.confirmPassword?.message}</p>
+        <p className="errors">{errors.confirmPassword?.message}</p>
         <input
           {...register("confirmPassword", {
             required: "Confirm your password",

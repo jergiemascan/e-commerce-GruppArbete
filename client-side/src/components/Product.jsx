@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function Product() {
   let { id } = useParams();
@@ -20,6 +21,7 @@ function Product() {
 
   return (
     <div>
+      <Navbar />
       {product.map((product) => {
         return (
           <div key={product._id}>

@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
       confirmPassword: hashedPassword,
     });
     res.status(201).json({
-      status: "Success!",
+      status: "success!",
     });
   } catch (err) {
     console.log(err);
@@ -25,5 +25,33 @@ router.post("/register", async (req, res) => {
     });
   }
 });
+
+router.post(
+  "/login",
+  catchAsync(async (req, res, next) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      res.status(401).json({
+        status: "failed",
+        message: "Please enter your email and password!",
+      });
+      return;
+    }
+
+    const user = await User.findOne({ email }).select("+password");
+    if (!user || !(await user.comparePassword(password, user.password))) {
+      res
+        .status(401)
+        .json({ status: "failed", message: "Incorrect email or password" });
+      return;
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "Welcome,you have logged in!",
+    });
+  })
+);
 
 module.exports = router;

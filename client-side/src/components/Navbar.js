@@ -6,9 +6,9 @@ import Profile from "./User/Profile";
 const Navbar = (props) => {
   return (
     <nav className="nav">
-      <Link to="/">
+      <p className="icon-profile">
         <Profile onShowHist={props.onShow} />
-      </Link>
+      </p>
       <Link to="/register">REGISTER</Link>
       <Link to="/login">SIGN IN</Link>
       <Link to="/">

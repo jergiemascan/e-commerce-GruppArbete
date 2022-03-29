@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import History from "../User/History";
+import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
   const [isHover, setIsHover] = useState(false);
+
+  const redirect = useNavigate();
+  const signoutHandler = () => {
+    localStorage.removeItem("isAuthenticated");
+    redirect("/");
+  };
 
   return (
     <div
@@ -23,7 +28,9 @@ const Profile = (props) => {
           <li className="dropdown-item" onClick={props.onShowHist}>
             History
           </li>
-          <li className="dropdown-item">Sign Out</li>
+          <li className="dropdown-item" onClick={signoutHandler}>
+            Sign Out
+          </li>
         </ul>
       )}
     </div>
