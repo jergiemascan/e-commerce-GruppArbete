@@ -36,6 +36,7 @@ function Products(props) {
       <div className="product-wrapper">
         {show && <History onClose={hideHistory} />}
 
+        <h1>Plans</h1>
         <div className="product-container">
           {products.map((product) => (
             <div className="product-card" key={product._id}>
@@ -49,9 +50,29 @@ function Products(props) {
               />
               <h1>{product.name}</h1>
               <h2>{product.price}:-</h2>
-              <h3>{product.desc}.</h3>
+              {/* <h3 className="product-desc">{product.desc.slice(0, 50)}</h3> */}
               <button type="submit">Add to cart</button>
-              <Link to={`/products/${product._id}`}>Info</Link>
+              <Link to={`/products/${product._id}`}>Read more</Link>
+            </div>
+          ))}
+        </div>
+        <h1>Supplements</h1>
+        <div className="product-container">
+          {products.map((product) => (
+            <div className="product-card" key={product._id}>
+              <img
+                onClick={() => {
+                  redirect(`/products/${product._id}`);
+                }}
+                className="product-image"
+                src={`assets/${product.photo}`}
+                alt="What up baby"
+              />
+              <h1>{product.name}</h1>
+              <h2>{product.price}:-</h2>
+              {/* <h3 className="product-desc">{product.desc.slice(0, 50)}</h3> */}
+              <button type="submit">Add to cart</button>
+              <Link to={`/products/${product._id}`}>Read more</Link>
             </div>
           ))}
         </div>
