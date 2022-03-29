@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Store } from "../Store";
-import axios from "axios";
 import Navbar from "./Navbar";
 
 function Product() {
@@ -11,7 +10,7 @@ function Product() {
     try {
       const response = await fetch(`http://localhost:3001/products/${id}`);
       let product = await response.json();
-      setProduct([product]);
+      setProduct(product);
     } catch (err) {
       console.log(err);
     }
@@ -33,19 +32,15 @@ function Product() {
   return (
     <div>
       <Navbar />;
-      {product.map((product) => {
-        return (
-          <div key={product._id}>
-            <img src={`../assets/${product.photo}`} alt="Supplement" />
-            <h1>{product.name}</h1>
-            <h2>{product.price}:-</h2>
-            <h4>{product.desc}</h4>
-            <button onClick={addToCartHandler} type="submit">
-              Add to cart
-            </button>
-          </div>
-        );
-      })}
+      <div key={product._id}>
+        <img src={`../assets/${product.photo}`} alt="Supplement" />
+        <h1>{product.name}</h1>
+        <h2>{product.price}:-</h2>
+        <h4>{product.desc}</h4>
+        <button onClick={addToCartHandler} type="submit">
+          Add to cart
+        </button>
+      </div>
     </div>
   );
 }
