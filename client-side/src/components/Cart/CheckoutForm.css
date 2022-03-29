@@ -155,6 +155,10 @@ body {
   justify-content: space-evenly;
 }
 
+.choosen-delivery {
+  border: 4px solid blue;
+}
+
 .choose-delivery:hover {
   border: 4px solid blue;
 }
