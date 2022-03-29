@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
       confirmPassword: hashedPassword,
     });
     res.status(201).json({
-      status: "success!",
+      status: "success",
     });
   } catch (err) {
     console.log(err);
