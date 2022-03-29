@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const {
@@ -15,10 +17,26 @@ function Login() {
 
   // Error message I used in case registration didn't work
   const [message, setMessage] = useState("");
+  const redirect = useNavigate();
 
   // Temporary function just to test form vaildation
   const onSubmit = async (data) => {
-    console.log(data);
+    try {
+      const response = await Axios.post("http://localhost:3001/login", {
+        email: data.email,
+        password: data.password,
+      });
+      console.log(response);
+      if (response?.data?.status === "success") {
+        localStorage.setItem("isAuthenticated", true);
+        setTimeout(() => {
+          redirect("/products");
+        }, 1000);
+        console.log("Welcome!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -39,7 +57,7 @@ function Login() {
           placeholder="Email"
           autoComplete="off"
         />
-        <p>{errors.password?.message}</p>
+        <p className="errors">{errors.password?.message}</p>
         <input
           {...register("password", {
             required: "Write your password",
@@ -51,10 +69,10 @@ function Login() {
               value: 10,
               message: "Maximum length is 10",
             },
-            pattern: {
-              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,10}$/,
-              message: "Needs upper/lowercase and number",
-            },
+            // pattern: {
+            //   value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,10}$/,
+            //   message: "Needs upper/lowercase and number",
+            // },
           })}
           type="password"
           placeholder="Password"
