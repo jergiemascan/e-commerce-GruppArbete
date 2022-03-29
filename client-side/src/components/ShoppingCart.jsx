@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useState } from "react";
 import { useContext } from "react";
 import { Store } from "../Store";
 import "./ShoppingCart.css";
@@ -12,16 +11,13 @@ const ShoppingCart = () => {
     cart: { cartItems },
   } = state;
 
-  console.log(cartItems);
-
   return (
     <section className="height">
       <Navbar />
       <div className="shopping">
-        <h2>Your bag</h2>
-        <div>Your items here</div>
+        <h2>Your bag:</h2>
         {cartItems.map((product) => (
-          <div>
+          <div key={product._id}>
             {console.log(product)}
             <div>{product.name}</div>
             <img src={`../assets/${product.photo}`} alt="Supplement" />
