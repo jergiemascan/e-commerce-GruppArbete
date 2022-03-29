@@ -18,7 +18,6 @@ const ShoppingCart = () => {
         <h2>Your bag:</h2>
         {cartItems.map((product) => (
           <div key={product._id}>
-            {console.log(product)}
             <div>{product.name}</div>
             <img src={`../assets/${product.photo}`} alt="Supplement" />
             <div>{product.price}</div>
