@@ -4,6 +4,6 @@
   }
 
   .red {
-    color: red;
-    display: inline-block;
+    color: rgb(211, 37, 37)!important;
+    display: inline-block!important;
   }
