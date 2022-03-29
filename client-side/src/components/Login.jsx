@@ -15,8 +15,10 @@ function Login() {
     },
   });
 
-  // Error message I used in case registration didn't work
-  const [message, setMessage] = useState("");
+  const [loginStatus, setLoginStatus] = useState({
+    isError: false,
+    message: "",
+  });
   const redirect = useNavigate();
 
   // Temporary function just to test form vaildation
@@ -36,6 +38,7 @@ function Login() {
       }
     } catch (error) {
       console.log(error);
+      setLoginStatus({ isError: true, message: error.response.data.message });
     }
   };
 
@@ -43,7 +46,7 @@ function Login() {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <p>{errors.email?.message}</p>
+        <p className="errors">{errors.email?.message}</p>
         <input
           {...register("email", {
             required: "Write your email",
@@ -78,6 +81,11 @@ function Login() {
           placeholder="Password"
           autoComplete="off"
         />
+        {loginStatus.isError && (
+          <div>
+            <strong style={{ color: "red" }}>{loginStatus.message}</strong>
+          </div>
+        )}
         {/* <p>{errors.confirmPassword?.message}</p>
         <input
           {...register("confirmPassword", {

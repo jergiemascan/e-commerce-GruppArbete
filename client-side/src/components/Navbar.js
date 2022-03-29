@@ -6,12 +6,12 @@ import Profile from "./User/Profile";
 const Navbar = (props) => {
   return (
     <nav className="nav">
-      <p className="icon-profile">
+      <div className="icon-profile">
         <Profile onShowHist={props.onShow} />
-      </p>
+      </div>
       <Link to="/register">REGISTER</Link>
       <Link to="/login">SIGN IN</Link>
-      <Link to="/">
+      <Link to="/Cart">
         <IoCartOutline />
       </Link>
     </nav>
