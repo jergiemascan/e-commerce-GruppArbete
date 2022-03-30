@@ -1,0 +1,5 @@
+@import "~react-line-progress-bar/dist/style/index.css";
+
+.progress-bar__line {
+  transition: transform 0.5s 0s ease;
+}

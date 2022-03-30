@@ -2,8 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
+<<<<<<< HEAD
 import Products from "./components/Products";
 import Product from "./components/Product";
+=======
+import Checkout from "./components/Cart/Checkout";
+>>>>>>> Checkout
 import ShoppingCart from "./components/ShoppingCart";
 import "./index.css";
 import ErrorPage from "./components/ErrorPage";
@@ -16,8 +20,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
+=======
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+      <Routes>
+>>>>>>> Checkout
         <Route path="/Cart" element={<ShoppingCart />} />
         <Route path="/*" element={<ErrorPage />} />
         {/* <Route path="/user" element={""}> */}

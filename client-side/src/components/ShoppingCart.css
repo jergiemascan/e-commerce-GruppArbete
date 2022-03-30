@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .shopping {
     display: grid;
     justify-content: center;
@@ -6,4 +7,15 @@
   .red {
     color: rgb(211, 37, 37)!important;
     display: inline-block!important;
+=======
+.asd {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+.shopping {
+    display: grid;
+    justify-content: center;
+>>>>>>> Checkout
   }

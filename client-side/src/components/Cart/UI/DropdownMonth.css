@@ -1,0 +1,38 @@
+.dropdown {
+  width: 120px;
+  margin: 50px auto;
+  user-select: none;
+  position: relative;
+}
+
+.dropdown .dropdown-btn {
+  padding: 10px;
+  background: #fff;
+  border: 2px solid rgb(18, 17, 19);
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown .dropdown-months {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #333;
+  width: 95%;
+}
+
+.dropdown .dropdown-months .dropdown-month {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown .dropdown-months .dropdown-month:hover {
+  background: #f4f4f4;
+}
