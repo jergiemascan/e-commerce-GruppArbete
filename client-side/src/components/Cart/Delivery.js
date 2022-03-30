@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaShippingFast } from "react-icons/fa";
 import { BsTruck } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
-import DeliveryCard from "../Cart/UI/DeliveryCard";
 
 function Delivery() {
   const [active, setActive] = useState(false);

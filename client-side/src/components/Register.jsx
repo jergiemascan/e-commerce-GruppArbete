@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
+import Modal from "./Modal";
 
-function Register() {
+function Register(props) {
   const {
     register,
     handleSubmit,
@@ -51,8 +52,11 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register here!</h2>
+    <Modal onClick={props.onClick}>
+      <h2 className="close" onClick={props.onCloseReg}>
+        X
+      </h2>
+      <h2>REGISTER HERE</h2>
       <p>{message}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className="errors">{errors.firstName?.message}</p>
@@ -139,9 +143,13 @@ function Register() {
           placeholder="Confirm password"
           autoComplete="off"
         />
-        <button type="submit">Register</button>
+        <div>
+          <button type="submit" className="btn-auth">
+            Register
+          </button>
+        </div>
       </form>
-    </div>
+    </Modal>
   );
 }
 

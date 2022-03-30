@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
-function Login() {
+function Login(props) {
   const {
     register,
     handleSubmit,
@@ -43,8 +44,11 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <Modal onClick={props.onClick}>
+      <h2 className="close" onClick={props.onCloseLogin}>
+        X
+      </h2>
+      <h2>LOGIN</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className="errors">{errors.email?.message}</p>
         <input
@@ -86,32 +90,13 @@ function Login() {
             <strong style={{ color: "red" }}>{loginStatus.message}</strong>
           </div>
         )}
-        {/* <p>{errors.confirmPassword?.message}</p>
-        <input
-          {...register("confirmPassword", {
-            required: "Confirm your password",
-            minLength: {
-              value: 5,
-              message: "Minimum length is 5.",
-            },
-            maxLength: {
-              value: 10,
-              message: "Maximum length is 5",
-            },
-            pattern: {
-              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,10}$/,
-              message: "Needs upper/lowercase and number",
-            },
-            validate: (isMatch) =>
-              isMatch === password.current || "The passwords do not match",
-          })}
-          type="password"
-          placeholder="Confirm password"
-          autoComplete="off"
-        /> */}
-        <button type="submit">Login</button>
+        <div>
+          <button type="submit" className="btn-auth">
+            Login
+          </button>
+        </div>
       </form>
-    </div>
+    </Modal>
   );
 }
 
