@@ -41,13 +41,14 @@ const History = (props) => {
       </div>
       <h2 className="orderH2">Order History</h2>
       <div className="history">
-        <p>Order Date</p>
+        <h4>Order Date</h4>
         <ul>
           <li>Product name</li>
           <li>Product name</li>
           <li>Product name</li>
           <li>Product name</li>
         </ul>
+        <h4>Total Amount</h4>
       </div>
     </CtaWrapper>
   );

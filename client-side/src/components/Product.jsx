@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Store } from "../Store";
 import Navbar from "./Navbar";
+import History from "./User/History";
 
 function Product() {
   let { id } = useParams();
@@ -29,9 +30,20 @@ function Product() {
     });
   };
 
+  // kopplar jijis histori här
+  const [show, setShow] = useState(false);
+  const showHistory = () => {
+    setShow(true);
+  };
+  const hideHistory = () => {
+    setShow(false);
+  };
+
   return (
     <div>
-      <Navbar />;
+      <Navbar onShow={showHistory} />
+      {show && <History onClose={hideHistory} />}
+
       <div key={product._id}>
         <img src={`../assets/${product.photo}`} alt="Supplement" />
         <h1>{product.name}</h1>
