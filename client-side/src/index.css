@@ -15,13 +15,6 @@ body {
   font-family: "Urbanist", Sans-Serif;
 }
 
-.nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
-  padding: 1rem 2rem;
-}
-
 .shopping {
   display: grid;
   justify-content: center;
@@ -75,7 +68,7 @@ li {
   align-items: center;
   gap: 2rem;
   padding: 1rem 2rem;
-  height: 4vw;
+  height: 10vw !important;
   background-color: #ecf0fa;
   /* background-color: #bfd1ff; */
 }
@@ -180,8 +173,9 @@ li {
 .modal {
   position: fixed;
   top: 20vh;
-  left: 5%;
-  width: 90%;
+  left: 30%;
+  width: 30%;
+  min-height: 30vh;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;
@@ -235,4 +229,48 @@ li {
   font-weight: bold;
   font-size: 1rem;
   font-family: inherit;
+}
+
+.sign-in,
+.register {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  font-family: inherit;
+  margin-bottom: 2rem;
+}
+.close {
+  align-self: flex-end;
+  font-size: 20px;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 0.2rem 0;
+  margin-bottom: 1rem;
+}
+
+.btn-auth {
+  width: 90%;
+  padding: 12px 0;
+  border-radius: 10px;
+  border: none;
+  background-color: #14919b;
+  color: #fff;
+  font-size: 20px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-auth:hover {
+  background-color: #2cb1bc;
 }
