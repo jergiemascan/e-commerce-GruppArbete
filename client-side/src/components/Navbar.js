@@ -18,9 +18,8 @@ const Navbar = (props) => {
       <Link to="/login">SIGN IN</Link>
       <Link to="/">HOMEPAGE</Link>
       <Link to="/products">PRODUCTS</Link>
-      <Link to="/Cart">CART</Link>
       <Link to="/checkout">CHECKOUT</Link>
-      <Link to="/">
+      <Link to="/Cart">
         <IoCartOutline />
         {cart.cartItems.length > 0 && (
           <p className="red">{cart.cartItems.length}</p>

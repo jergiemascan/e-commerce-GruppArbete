@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Store } from "../Store";
 import Navbar from "./Navbar";
 import History from "./User/History";
-=======
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
->>>>>>> Checkout
 
 function Product() {
   let { id } = useParams();
@@ -16,11 +11,8 @@ function Product() {
     try {
       const response = await fetch(`http://localhost:3001/products/${id}`);
       let product = await response.json();
-<<<<<<< HEAD
       setProduct(product);
-=======
-      setProduct([product]);
->>>>>>> Checkout
+      console.log(product)
     } catch (err) {
       console.log(err);
     }
@@ -30,7 +22,6 @@ function Product() {
     fetchProduct();
   }, []);
 
-<<<<<<< HEAD
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
   const addToCartHandler = () => {
@@ -63,21 +54,6 @@ function Product() {
           Add to cart
         </button>
       </div>
-=======
-  return (
-    <div>
-      {product.map((product) => {
-        return (
-          <div key={product._id}>
-            <img src={`../assets/${product.photo}`} alt="Supplement" />
-            <h1>{product.name}</h1>
-            <h2>{product.price}:-</h2>
-            <h4>{product.desc}</h4>
-            <button type="submit">Add to cart</button>
-          </div>
-        );
-      })}
->>>>>>> Checkout
     </div>
   );
 }
