@@ -11,6 +11,9 @@ const ShoppingCart = () => {
     cart: { cartItems },
   } = state;
 
+  
+
+
   return (
     <section className="height">
       <Navbar />
@@ -24,7 +27,7 @@ const ShoppingCart = () => {
           </div>
         ))}
 
-        <button>Checkout</button>
+   <button>Order</button>
       </div>
 
       <div className="asd">

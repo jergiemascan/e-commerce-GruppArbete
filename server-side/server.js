@@ -17,6 +17,9 @@ app.get("/", (req, res) => {
 const products = require("./routes/productRoute");
 app.use("/", products);
 
+const delivery = require("./routes/deliveryRoute");
+app.use("/", delivery);
+
 const userAuth = require("./routes/userRoute");
 const loginUser = require("./routes/userRoute");
 app.use("/user", userAuth);

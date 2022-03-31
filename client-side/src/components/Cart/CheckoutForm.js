@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import CheckoutOverview from "./CheckoutOverview";
 import Contact from "./Contact";
 import Delivery from "./Delivery";
-import Payment from "./Payment";
 import "./CheckoutForm.css";
 
 function CheckoutForm() {
@@ -16,12 +15,19 @@ function CheckoutForm() {
     city: "",
   });
 
-  const CheckoutForms = [
-    "Overview",
-    "Contact",
-    "Choose Delivery Method",
-    "Payment Details",
-  ];
+  const CheckoutForms = ["Overview", "Contact", "Choose Delivery Method"];
+
+  // if (step === 0) {
+  //   return <CheckoutOverview></CheckoutOverview>;
+  // } else if (step === 1) {
+  //   return (
+  //     <Contact inputData={inputData} setInputData={setInputData}></Contact>
+  //   );
+  // } else if (step === 2) {
+  //   return <Delivery></Delivery>;
+  // } else {
+  //   return <Payment></Payment>;
+  // }
 
   const DisplayCurrentStep = () => {
     if (step === 0) {
@@ -32,8 +38,6 @@ function CheckoutForm() {
       );
     } else if (step === 2) {
       return <Delivery></Delivery>;
-    } else {
-      return <Payment></Payment>;
     }
   };
   return (
@@ -67,18 +71,12 @@ function CheckoutForm() {
             Prev
           </button>
           <button
-            disabled={step === CheckoutForms.length - 1}
+            hidden={step === CheckoutForms.length - 1}
             onClick={() => {
               setStep((currStep) => currStep + 1);
             }}
           >
-            {step === 0
-              ? "Confirm Items"
-              : step === 1
-              ? "Delivery"
-              : step === 2
-              ? "Payment"
-              : "Place Order"}
+            {step === 0 ? "Confirm Items" : step === 1 ? "Delivery" : ""}
           </button>
         </div>
       </div>
