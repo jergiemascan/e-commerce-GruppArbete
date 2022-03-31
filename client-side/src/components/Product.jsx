@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Store } from "../Store";
 import Navbar from "./Navbar";
 import History from "./User/History";
-<<<<<<< HEAD
-import Footer from "./Footer";
-import "./Product.css";
-=======
->>>>>>> collect-order
 
 function Product() {
   let { id } = useParams();
@@ -17,10 +12,6 @@ function Product() {
       const response = await fetch(`http://localhost:3001/products/${id}`);
       let product = await response.json();
       setProduct(product);
-<<<<<<< HEAD
-=======
-      console.log(product)
->>>>>>> collect-order
     } catch (err) {
       console.log(err);
     }
@@ -53,32 +44,15 @@ function Product() {
       <Navbar onShow={showHistory} />
       {show && <History onClose={hideHistory} />}
 
-      <div className="product-container" key={product._id}>
-        <img
-          className="product-image"
-          src={`../assets/${product.photo}`}
-          alt="Supplement"
-        />
-        <div className="product-card">
-          <h1>{product.name}</h1>
-          <h2>&#36;{product.price}</h2>
-          <p className="product-desc">{product.desc}</p>
-          <button
-            onClick={addToCartHandler}
-            className=" btn-product "
-            type="submit"
-          >
-            Add to cart
-          </button>
-          <Link className="product-link-btn" to={"/products"}>
-            Back to products..
-          </Link>
-        </div>
+      <div key={product._id}>
+        <img src={`../assets/${product.photo}`} alt="Supplement" />
+        <h1>{product.name}</h1>
+        <h2>{product.price}:-</h2>
+        <h4>{product.desc}</h4>
+        <button onClick={addToCartHandler} type="submit">
+          Add to cart
+        </button>
       </div>
-<<<<<<< HEAD
-      <Footer />
-=======
->>>>>>> collect-order
     </div>
   );
 }
