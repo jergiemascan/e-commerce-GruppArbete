@@ -76,10 +76,10 @@ function Login(props) {
               value: 10,
               message: "Maximum length is 10",
             },
-            // pattern: {
-            //   value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,10}$/,
-            //   message: "Needs upper/lowercase and number",
-            // },
+            pattern: {
+              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,10}$/,
+              message: "Needs upper/lowercase and number",
+            },
           })}
           type="password"
           placeholder="Password"
