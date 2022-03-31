@@ -11,15 +11,16 @@ module.exports.createOrder = catchAsync(async (req, res) => {
   }, 0);
   req.body.totalAmount = totalamount;
   const order = await orderSchema.create(req.body);
-  const newOrder = await order.save();
+  // const newOrder = await order.save();
+
   res.status(201).json({
     status: "success",
     data: {
       Orders: order,
     },
-    message: "Order confirmed!",
+    message: "Your order is confirmed!",
   });
-  console.log("result", newOrder);
+  console.log("result", order);
   return;
 });
 
@@ -27,10 +28,20 @@ module.exports.createOrder = catchAsync(async (req, res) => {
 
 module.exports.getOrders = catchAsync(async (req, res) => {
   const getOrders = await orderSchema.find({ userToken: req.params.userToken });
+
+  // if (!getOrders) {
+  //   res.status(404).send({
+  //     status: "failed",
+  //     message: "No order found",
+  //   });
+  //   return;
+  // }
+
   res.status(201).json({
     status: "success",
     data: getOrders,
-    message: "Fetched orders successfully",
+    message: "You have successfully fetched your order history",
   });
+
   return;
 });

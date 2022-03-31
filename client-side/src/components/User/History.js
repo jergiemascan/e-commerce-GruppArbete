@@ -14,9 +14,11 @@ const History = (props) => {
         const response = await Axios.get(
           `http://localhost:3001/user/find/${userToken}`
         );
-
-        console.log(response.data);
+        console.log(response.data.data);
         setState(response.data.data);
+        if (response.data.data === 0) {
+          setState(response.data.message);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -32,6 +34,7 @@ const History = (props) => {
       </div>
       <h2 className="orderH2">Order History</h2>
       <div>
+        {state && <h2>{"No order found"}</h2>}
         {state.map((article) => (
           <div className="history" key={article._id}>
             <h2 className="order-date">
@@ -46,12 +49,13 @@ const History = (props) => {
                         Product name: {e.productId}
                       </h4>
                       <h4 className="h4Articles">Quantity: {e.quantity}</h4>
+                      <h4 className="h4Articles">
+                        Unit Price:{" "}
+                        <span className="articles">{e.price} kr</span>
+                      </h4>
                     </li>
                   ))
                 : ""}
-              <h4 className="h4Articles">
-                Unit Price: <span className="articles">{article.price} kr</span>
-              </h4>
               <h2 className="h4Articles">
                 Total Amount:
                 <span className="articles">{article.totalAmount} kr</span>
