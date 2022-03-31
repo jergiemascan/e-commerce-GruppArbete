@@ -25,13 +25,13 @@ function Login(props) {
   // Temporary function just to test form vaildation
   const onSubmit = async (data) => {
     try {
-      const response = await Axios.post("http://localhost:3001/login", {
+      const response = await Axios.post("http://localhost:3001/user/login", {
         email: data.email,
         password: data.password,
       });
       console.log(response);
       if (response?.data?.status === "success") {
-        localStorage.setItem("isAuthenticated", true);
+        localStorage.setItem("token", response.data.token);
         setTimeout(() => {
           redirect("/products");
         }, 1000);

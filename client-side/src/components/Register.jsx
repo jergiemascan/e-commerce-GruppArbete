@@ -39,7 +39,7 @@ function Register(props) {
         confirmPassword: data.confirmPassword,
       });
       if (response?.data?.status === "success") {
-        localStorage.setItem("isAuthenticated", true);
+        localStorage.setItem("token", response.data.token);
         setTimeout(() => {
           redirect("/products");
         }, 1000);

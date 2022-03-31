@@ -1,7 +1,17 @@
 import React from "react";
+import { Fragment } from "react";
+
+const Backdrop = (props) => {
+  return <div className="backdrop" onClick={props.onClose}></div>;
+};
 
 const CtaWrapper = (props) => {
-  return <div className="cta">{props.children}</div>;
+  return (
+    <Fragment>
+      <div className="cta">{props.children}</div>
+      <Backdrop></Backdrop>
+    </Fragment>
+  );
 };
 
 export default CtaWrapper;
