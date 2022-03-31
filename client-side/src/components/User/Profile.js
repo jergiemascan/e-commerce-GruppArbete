@@ -7,7 +7,7 @@ const Profile = (props) => {
 
   const redirect = useNavigate();
   const signoutHandler = () => {
-    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("token");
     redirect("/");
   };
 

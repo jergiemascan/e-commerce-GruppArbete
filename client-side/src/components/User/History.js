@@ -1,38 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CtaWrapper from "./CtaWrapper";
 import { IoMdClose } from "react-icons/io";
-
-// import Axios from "axios";
+import Axios from "axios";
+import * as moment from "moment";
 
 const History = (props) => {
-  // try{
-  //   const response= await Axios.get('/user/checkout)
+  const [state, setState] = useState([]);
 
-  //     if(response.status==200){
-  //       this.orders = response.data
-  //       this.len = Object.keys(this.orders).length
-  //       let i
-  //       for(i=0;i<this.len;i++){
-  //           this.totalCost[i] = this.orders[i].totalPrice
-  //           this.orderdate.push((this.orders[i].createdDate).substring(0,10))
-  //           this.orderList.push({
-  //             pid:this.orders[i].id
-  //           })
-  //       }
-  //     }
+  useEffect(() => {
+    async function getHistory() {
+      try {
+        const userToken = localStorage.getItem("token");
+        const response = await Axios.get(
+          `http://localhost:3001/user/find/${userToken}`
+        );
 
-  // }catch(error){
-  //     console.log(error)
-  // };
-  // }
-  const numberOfOrders = "";
-  const orderList = "anArraytoStoreListofTheOrders";
-  const totalCost = "totalOfOrder";
-  const orderDate = "datePerOrder";
+        console.log(response.data);
+        setState(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
-  // för inloggade user(current user)
-  // nested routes for user.. GET /userId/checkout
-  // if (!req.body.user) req.body.user = req.params.userId;
+    getHistory();
+  }, []);
 
   return (
     <CtaWrapper onClick={props.onClick}>
@@ -40,15 +31,34 @@ const History = (props) => {
         <IoMdClose onClick={props.onClose} />
       </div>
       <h2 className="orderH2">Order History</h2>
-      <div className="history">
-        <h4>Order Date</h4>
-        <ul>
-          <li>Product name</li>
-          <li>Product name</li>
-          <li>Product name</li>
-          <li>Product name</li>
-        </ul>
-        <h4>Total Amount</h4>
+      <div>
+        {state.map((article) => (
+          <div className="history" key={article._id}>
+            <h2 className="order-date">
+              Order Date: {moment(article.createdAt).format("YYYY-MM-DD")}
+            </h2>
+            <ul className="shopping-history-list">
+              {article.products
+                ? article.products.map((e) => (
+                    <li key={e._id}>
+                      <h2 className="h4Articles">Articles</h2>
+                      <h4 className="h4Articles">
+                        Product name: {e.productId}
+                      </h4>
+                      <h4 className="h4Articles">Quantity: {e.quantity}</h4>
+                    </li>
+                  ))
+                : ""}
+              <h4 className="h4Articles">
+                Unit Price: <span className="articles">{article.price} kr</span>
+              </h4>
+              <h2 className="h4Articles">
+                Total Amount:
+                <span className="articles">{article.totalAmount} kr</span>
+              </h2>
+            </ul>
+          </div>
+        ))}
       </div>
     </CtaWrapper>
   );
