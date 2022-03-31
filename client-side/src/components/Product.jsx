@@ -3,8 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import { Store } from "../Store";
 import Navbar from "./Navbar";
 import History from "./User/History";
+<<<<<<< HEAD
 import Footer from "./Footer";
 import "./Product.css";
+=======
+>>>>>>> collect-order
 
 function Product() {
   let { id } = useParams();
@@ -14,6 +17,10 @@ function Product() {
       const response = await fetch(`http://localhost:3001/products/${id}`);
       let product = await response.json();
       setProduct(product);
+<<<<<<< HEAD
+=======
+      console.log(product)
+>>>>>>> collect-order
     } catch (err) {
       console.log(err);
     }
@@ -68,7 +75,10 @@ function Product() {
           </Link>
         </div>
       </div>
+<<<<<<< HEAD
       <Footer />
+=======
+>>>>>>> collect-order
     </div>
   );
 }

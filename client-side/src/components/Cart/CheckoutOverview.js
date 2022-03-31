@@ -1,25 +1,43 @@
 import React from "react";
+import ShoppingCart from "../ShoppingCart";
+import { useContext } from "react";
+import { Store } from "../../Store";
 
 function CheckoutOverview() {
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const {
+    cart: { cartItems },
+  } = state;
+
+  function cartTotalSum() {
+    const e = cartItems.reduce((e, { price }) => e + price, 0);
+    return e;
+  }
+
+  const totalAmount = cartTotalSum();
   return (
     <div className="checkout-overview-container">
       <ul>
-        <div className="overview-flex">
-          <div className="checkout-items">
-            <li>1x Amino</li>
-            <li>2x SuperDuper Creatin</li>
-            <li>1x Whey 100 Magic</li>
-            <li>3x PWO</li>
-          </div>
-          <div className="checkout-amounts">
-            <li>16 Eur</li>
-            <li>22 Eur</li>
-            <li>18.99 Eur</li>
-            <li>42.29 Eur</li>
-          </div>
-        </div>
+        {cartItems.map((product) => (
+          <div className="overview-flex">
+            <div className="checkout-items" key={product._id}>
+              <li>
+                <div>{product.name}</div>
+              </li>
+            </div>
 
-        <li className="checkout-total">Total: 99.98 Eur</li>
+            <div className="checkout-amounts">
+              <li>
+                <div>{product.price}&#36;</div>
+              </li>
+            </div>
+          </div>
+        ))}
+
+        <li className="checkout-total">
+          Total:{` `}
+          {totalAmount} {` `}&#36;
+        </li>
       </ul>
     </div>
   );

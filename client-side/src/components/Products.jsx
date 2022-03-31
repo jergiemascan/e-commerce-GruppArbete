@@ -65,7 +65,10 @@ function Products(props) {
             </div>
           ))}
         </div>
+<<<<<<< HEAD
         {/* <h1>Supplements</h1> */}
+=======
+>>>>>>> collect-order
       </div>
       <Footer />
     </div>

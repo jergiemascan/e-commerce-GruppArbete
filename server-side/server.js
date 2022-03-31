@@ -17,9 +17,15 @@ app.get("/", (req, res) => {
 const products = require("./routes/productRoute");
 app.use("/", products);
 
+<<<<<<< HEAD
 // register och login
 // to use:(post) http://localhost:3001/user/register eller
 // to use:(post) http://localhost:3001/user/login eller
+=======
+const delivery = require("./routes/deliveryRoute");
+app.use("/", delivery);
+
+>>>>>>> collect-order
 const userAuth = require("./routes/userRoute");
 app.use("/user", userAuth);
 

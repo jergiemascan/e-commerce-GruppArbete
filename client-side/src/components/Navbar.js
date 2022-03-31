@@ -43,7 +43,6 @@ const Navbar = (props) => {
       </div>
       <Link to="/">HOMEPAGE</Link>
       <Link to="/products">PRODUCTS</Link>
-      <Link to="/Cart">CART</Link>
       <Link to="/checkout">CHECKOUT</Link>
       <Link to="/Cart">
         <IoCartOutline />
