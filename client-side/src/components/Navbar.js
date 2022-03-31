@@ -7,9 +7,14 @@ import Profile from "./User/Profile";
 import Login from "./Login";
 import Register from "./Register";
 
+const userLoggedin = localStorage.getItem("token");
+
 const Navbar = (props) => {
   const { state } = useContext(Store);
   const { cart } = state;
+  // Display profile, register or login
+  const [displayNavLinks, setDisplayNavLinks] = useState(!userLoggedin);
+  const [displayProf, setDisplayprof] = useState(userLoggedin);
 
   // modal
   const [showRegModal, setShowRegModal] = useState(false);
@@ -32,15 +37,21 @@ const Navbar = (props) => {
     <nav className="nav">
       {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
       {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
-      <div className="icon-profile">
-        <Profile onShowHist={props.onShow} />
-      </div>
-      <div onClick={showModalRegHandler} className="register">
-        REGISTER
-      </div>
-      <div onClick={showModalLoginHandler} className="sign-in">
-        SIGN IN
-      </div>
+      {displayProf && (
+        <div className="icon-profile">
+          <Profile onShowHist={props.onShow} />
+        </div>
+      )}
+      {displayNavLinks && (
+        <div onClick={showModalRegHandler} className="register">
+          REGISTER
+        </div>
+      )}
+      {displayNavLinks && (
+        <div onClick={showModalLoginHandler} className="sign-in">
+          SIGN IN
+        </div>
+      )}
       <Link to="/">HOMEPAGE</Link>
       <Link to="/products">PRODUCTS</Link>
       <Link to="/Cart">CART</Link>

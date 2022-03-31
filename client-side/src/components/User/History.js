@@ -34,7 +34,7 @@ const History = (props) => {
       </div>
       <h2 className="orderH2">Order History</h2>
       <div>
-        {state && <h2>{"No order found"}</h2>}
+        {/* {state && <h2>{"No order found"}</h2>} */}
         {state.map((article) => (
           <div className="history" key={article._id}>
             <h2 className="order-date">
