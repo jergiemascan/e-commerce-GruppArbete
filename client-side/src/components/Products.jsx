@@ -39,35 +39,35 @@ function Products(props) {
 
         <h1>Plans & Supplements</h1>
         <div className="products-container">
-          {products.map((product, index) => (
-            <div className={`cards products-card-${index}`} key={product._id}>
-              <img
-                onClick={() => {
-                  redirect(`/products/${product._id}`);
-                }}
-                className="products-image"
-                src={`assets/${product.photo}`}
-                alt="What up baby"
-              />
-              <h2>{product.name}</h2>
-              <h2>&#36;{product.price}</h2>
-              <p className="shortdesc">{product.shortdesc}</p>
+          {products.length > 0 &&
+            products.map((product, index) => (
+              <div className={`cards products-card-${index}`} key={product._id}>
+                <img
+                  onClick={() => {
+                    redirect(`/products/${product._id}`);
+                  }}
+                  className="products-image"
+                  src={`assets/${product.photo}`}
+                  alt="What up baby"
+                />
+                <h2>{product.name}</h2>
+                <h2>&#36;{product.price}</h2>
+                <p className="shortdesc">{product.shortdesc}</p>
 
-              <button className="btn-product" type="submit">
-                Add to cart
-              </button>
-              <Link
-                className="product-link-btn"
-                to={`/products/${product._id}`}
-              >
-                Read more..
-              </Link>
-            </div>
-          ))}
+                <button className="btn-product" type="submit">
+                  Add to cart
+                </button>
+                <Link
+                  className="product-link-btn"
+                  to={`/products/${product._id}`}
+                >
+                  Read more..
+                </Link>
+              </div>
+            ))}
         </div>
-        {/* <h1>Supplements</h1> */}
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
