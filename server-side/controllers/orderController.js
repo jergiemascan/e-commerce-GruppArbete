@@ -2,23 +2,15 @@ const orderSchema = require("../models/orderSchema");
 const catchAsync = require("../utility/catchAsync");
 
 module.exports.createOrder = catchAsync(async (req, res) => {
-  ///Calculating total price
-  const productsArray = req.body.products;
-
-  const totalamount = productsArray.reduce((acc, ele) => {
-    acc += parseInt(ele.quantity) * parseInt(ele.price);
-    return acc;
-  }, 0);
-  req.body.totalAmount = totalamount;
   const order = await orderSchema.create(req.body);
-  // const newOrder = await order.save();
+  const newOrder = await order.save();
 
   res.status(201).json({
     status: "success",
     data: {
-      Orders: order,
+      Orders: newOrder,
     },
-    message: "Your order is confirmed!",
+    message: "Order created!",
   });
   console.log("result", order);
   return;
