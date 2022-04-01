@@ -18,6 +18,14 @@ function reducer(state, action) {
           cartItems: [...state.cart.cartItems, action.payload],
         },
       };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: [],
+        },
+      };
     default:
       return state;
   }
