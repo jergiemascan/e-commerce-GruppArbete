@@ -23,12 +23,10 @@ function Payment() {
       const response = await fetch(`http://localhost:3001/deliveries/${id}`);
       let delivery = await response.json();
       setDelivery(delivery);
-      // console.log(delivery);
     } catch (err) {
       console.log(err);
     }
   };
-  // console.log(delivery);
 
   useEffect(() => {
     fetchDelivery();
@@ -38,7 +36,7 @@ function Payment() {
   const {
     cart: { cartItems },
   } = state;
-  // console.log(cartItems);
+
   function cartTotalSum() {
     const e = cartItems.reduce((e, { price }) => e + price, 0);
     return e;
@@ -47,20 +45,20 @@ function Payment() {
   const totalAmount = cartTotalSum();
 
   // Jijis ändringar ***
+
   const orderSubmitHandler = async (e) => {
     e.preventDefault();
     const userToken = localStorage.getItem("token");
-
-    console.log(cartItems);
-
+    cartItems.push(delivery);
+    cartItems.push(totalAmount);
     try {
+      console.log(delivery);
+
       const res = await axios.post(
         "http://localhost:3001/user/order",
         {
-          productname: cartItems[0].name,
-          price: cartItems[0].price,
-          deliveryCost: delivery[0].name,
-          totalAmount: totalAmount + delivery.name,
+          // cartItems innehåller delivery och totalAmount :) (Se linje 54 och 55)
+          products: cartItems,
         },
         {
           headers: {
@@ -68,9 +66,11 @@ function Payment() {
           },
         }
       );
-
       if (res?.data?.status === "success") {
         console.log("Order submitted");
+        ctxDispatch({
+          type: "CLEAR_CART",
+        });
       }
     } catch (error) {
       console.log(error);
