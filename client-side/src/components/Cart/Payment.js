@@ -6,10 +6,11 @@ import DropdownMonth from "./UI/DropdownMonth";
 import DropdownYear from "./UI/DropdownYear";
 import { useContext } from "react";
 import { Store } from "../../Store";
-import { FaCcVisa } from "react-icons/fa";
+import { FaCcVisa, FaProductHunt } from "react-icons/fa";
 import { FaCcAmex } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa";
 import "./CheckoutForm.css";
+import axios from "axios";
 
 function Payment() {
   const [selectedMonth, setSelectedMonth] = useState("Exp Month");
@@ -27,6 +28,7 @@ function Payment() {
       console.log(err);
     }
   };
+  console.log(delivery);
 
   useEffect(() => {
     fetchDelivery();
@@ -36,7 +38,7 @@ function Payment() {
   const {
     cart: { cartItems },
   } = state;
-
+  console.log(cartItems);
   function cartTotalSum() {
     const e = cartItems.reduce((e, { price }) => e + price, 0);
     return e;
@@ -44,6 +46,34 @@ function Payment() {
 
   const totalAmount = cartTotalSum();
 
+  // Jijis ändringar ***
+  const orderSubmitHandler = async (e) => {
+    e.preventDefault();
+    const userToken = localStorage.getItem("token");
+    try {
+      const res = await axios.post(
+        "http://localhost:3001/user/order",
+        {
+          productname: cartItems.name,
+          price: cartItems.price,
+          deliveryCost: delivery.name,
+          totalAmount: totalAmount + delivery.name,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+
+      if (res?.data?.status === "success") {
+        console.log("Order submitted");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // slutar här ***
   return (
     <div>
       <Navbar></Navbar>
@@ -56,7 +86,8 @@ function Payment() {
               }}
             ></div>
           </div>
-          <div className="form-container">
+          {/*jiji ändrar till form */}{" "}
+          <form className="form-container" onSubmit={orderSubmitHandler}>
             <div className="payment-container">
               <div className="header">
                 <h1>Checkout</h1>
@@ -65,9 +96,36 @@ function Payment() {
                 <div className="checkout-overview-container-payment">
                   <ul>
                     <div className="overview-flex">
+                      {/* *****************jijis ändringar */}
+
+                      <div className="shopping-list">
+                        {cartItems.map((product) => (
+                          <div className="overview-flex">
+                            <div className="checkout-items" key={product._id}>
+                              <li>
+                                <div value={product.name} name="productname">
+                                  {product.name}
+                                </div>
+                              </li>
+                            </div>
+
+                            <div className="checkout-amounts">
+                              <li>
+                                <div value={product.price} name="price">
+                                  {product.price}&#36;
+                                </div>
+                              </li>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      {/******************** * jijis ändringar upp hit */}
+
                       <div className="checkout-items">
                         <li>Order</li>
-                        <li>Delivery Method: {delivery.name}</li>
+                        <li value={delivery.name} name="productname">
+                          Delivery Method: {delivery.name}
+                        </li>
                         <li>Order Total:</li>
                       </div>
                       <div className="checkout-amounts">
@@ -76,8 +134,13 @@ function Payment() {
                           {` `}
                           {totalAmount} {` `}&#36;
                         </li>
-                        <li> {delivery.price}&#36;</li>
-                        <li>{totalAmount + delivery.price} &#36;</li>
+                        <li value={delivery.price} name="deliveryCost">
+                          {" "}
+                          {delivery.price}&#36;
+                        </li>
+                        <li value={totalAmount} name="totalAmount">
+                          {totalAmount + delivery.price} &#36;
+                        </li>
                       </div>
                     </div>
                   </ul>
@@ -113,9 +176,11 @@ function Payment() {
               </div>
             </div>
             <div className="checkout-footer">
-              <button className="btnPlaceOrder">Place Order</button>
+              <button className="btnPlaceOrder" type="submit">
+                Place Order
+              </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 

@@ -218,3 +218,27 @@ input:hover {
 input:focus {
   border: 3px solid blue;
 }
+
+/* jijis css design ändringar */
+
+.reg-login {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.btn-reg {
+  padding: 16px 25px;
+  border-radius: 25px;
+  border: none;
+  background-color: #14919b;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+}
