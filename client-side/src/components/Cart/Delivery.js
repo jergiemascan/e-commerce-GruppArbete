@@ -6,6 +6,11 @@ import { GoLocation } from "react-icons/go";
 
 function Delivery() {
   const [delivery, setDelivery] = useState([]);
+  const iconArray = [
+    <GoLocation color="blue" fontSize="2.5em" />,
+    <BsTruck color="blue" fontSize="2.5em" />,
+    <FaShippingFast color="blue" fontSize="2.5em" />,
+  ];
 
   useEffect(() => {
     async function fetchDeliveryData() {
@@ -24,7 +29,7 @@ function Delivery() {
 
   return (
     <div className="delivery-container">
-      {delivery.map((delivery) => (
+      {delivery.map((delivery, i) => (
         <div
           onClick={() => {
             redirect(`/checkout/${delivery._id}`);
@@ -33,7 +38,7 @@ function Delivery() {
           className="choose-delivery"
         >
           <h1>{delivery.name}</h1>
-          {delivery.description}
+          <div>{iconArray[i]}</div>
           <h1>{delivery.price}&#36;</h1>
         </div>
       ))}
