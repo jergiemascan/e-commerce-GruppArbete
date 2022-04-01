@@ -21,6 +21,7 @@ function CheckoutOverview() {
         {cartItems.map((product) => (
           <div className="overview-flex">
             <div className="checkout-items" key={product._id}>
+              <div>{product.quantity}</div>
               <li>
                 <div>{product.name}</div>
               </li>

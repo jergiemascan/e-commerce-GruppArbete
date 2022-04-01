@@ -7,3 +7,20 @@
   color: rgb(211, 37, 37) !important;
   display: inline-block !important;
 }
+
+.small {
+  height: 300px;
+}
+
+.cart-list {
+  padding: 20px;
+}
+
+.checkout-cart {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.right {
+  float: right;
+}
