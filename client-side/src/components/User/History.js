@@ -39,16 +39,14 @@ const History = (props) => {
           <div className="history" key={article._id}>
             <h2 className="order-date">
               Order Date: {moment(article.createdAt).format("YYYY-MM-DD")}
+              <h2 className="h4Articles">Articles</h2>
             </h2>
             <ul className="shopping-history-list">
               {article.products
                 ? article.products.map((e) => (
                     <li key={e._id}>
-                      <h2 className="h4Articles">Articles</h2>
-                      <h4 className="h4Articles">
-                        Product name: {e.productId}
-                      </h4>
-                      <h4 className="h4Articles">Quantity: {e.quantity}</h4>
+                      <h4 className="h4Articles">Product name: {e.name}</h4>
+                      {/* <h4 className="h4Articles">Quantity: {e.quantity}</h4> */}
                       <h4 className="h4Articles">
                         Unit Price:{" "}
                         <span className="articles">{e.price} kr</span>
@@ -58,6 +56,7 @@ const History = (props) => {
                 : ""}
               <h2 className="h4Articles">
                 Total Amount:
+                {/* <span className="articles">{article.totalAmount} kr</span> */}
                 <span className="articles">{article.totalAmount} kr</span>
               </h2>
             </ul>
