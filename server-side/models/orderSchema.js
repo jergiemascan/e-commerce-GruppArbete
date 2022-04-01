@@ -2,15 +2,17 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
+    userToken: {
+      type: String,
+      required: true,
+    },
     products: {
       type: Array,
 
       required: true,
     },
-  },
-  {
     deliveryCost: {
-      type: Number,
+      type: Object,
       required: true,
     },
     totalAmount: {

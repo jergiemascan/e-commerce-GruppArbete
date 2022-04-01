@@ -48,8 +48,6 @@ function Payment() {
   const orderSubmitHandler = async (e) => {
     e.preventDefault();
     const userToken = localStorage.getItem("token");
-    cartItems.push(delivery);
-    cartItems.push(totalAmount);
     try {
       console.log(delivery);
 
@@ -57,7 +55,10 @@ function Payment() {
         "http://localhost:3001/user/order",
         {
           // cartItems innehåller delivery och totalAmount :) (Se linje 54 och 55)
+          userToken: userToken,
           products: cartItems,
+          deliveryCost: delivery,
+          totalAmount: totalAmount,
         },
         {
           headers: {
