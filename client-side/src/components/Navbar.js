@@ -43,11 +43,12 @@ const Navbar = (props) => {
       </div>
       <Link to="/">HOMEPAGE</Link>
       <Link to="/products">PRODUCTS</Link>
-      <Link to="/checkout">CHECKOUT</Link>
       <Link to="/Cart">
         <IoCartOutline />
         {cart.cartItems.length > 0 && (
-          <p className="red">{cart.cartItems.length}</p>
+          <p className="red">
+            {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+          </p>
         )}
       </Link>
     </nav>
