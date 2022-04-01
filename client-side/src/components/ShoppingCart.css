@@ -24,3 +24,7 @@
 .right {
   float: right;
 }
+
+.quantity {
+  padding: 10px;
+}

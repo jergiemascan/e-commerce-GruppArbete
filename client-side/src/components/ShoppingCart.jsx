@@ -44,7 +44,7 @@ const ShoppingCart = () => {
             >
               -
             </button>
-            <span>{product.quantity}</span>
+            <span className="quantity">{product.quantity}</span>
             <button
               onClick={() => updateCartHandler(product, product.quantity + 1)}
             >
