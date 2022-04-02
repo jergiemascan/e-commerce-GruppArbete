@@ -1,0 +1,45 @@
+.confirmation-container {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.confirmation-form {
+    border: 1px solid black;
+    border-top: 0ch;
+    border-right: 0ch;
+    width: 50%;
+}
+
+.overview-checkout-flex {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.confirmationTable-and-button {
+    margin-top: 4vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.yourOrder {
+    margin-top: 12vh;
+    border-bottom: 1px solid black;
+} 
+
+.backToHomeBtn {
+    border: none;
+    background-color: white;
+}
+
+.backToHomeBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 5vh;
+}
+
+
+
