@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CheckoutOverview from "./CheckoutOverview";
-// import Contact from "./Contact";
 import Delivery from "./Delivery";
 
 import Login from "../Login";
@@ -21,20 +20,7 @@ function CheckoutForm() {
 
   const CheckoutForms = ["Overview", "Contact", "Choose Delivery Method"];
 
-  // if (step === 0) {
-  //   return <CheckoutOverview></CheckoutOverview>;
-  // } else if (step === 1) {
-  //   return (
-  //     <Contact inputData={inputData} setInputData={setInputData}></Contact>
-  //   );
-  // } else if (step === 2) {
-  //   return <Delivery></Delivery>;
-  // } else {
-  //   return <Payment></Payment>;
-  // }
-
   const DisplayCurrentStep = () => {
-    // Modal form for register-login
     const [showRegModal, setShowRegModal] = useState(false);
     const showModalRegHandler = () => {
       setShowRegModal(true);
@@ -55,8 +41,6 @@ function CheckoutForm() {
       return <CheckoutOverview></CheckoutOverview>;
     } else if (step === 1) {
       return (
-        // <Contact inputData={inputData} setInputData={setInputData}></Contact>
-
         <div className="reg-login">
           {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
           {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
