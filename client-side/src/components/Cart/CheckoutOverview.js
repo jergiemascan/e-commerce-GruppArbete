@@ -9,19 +9,24 @@ function CheckoutOverview() {
     cart: { cartItems },
   } = state;
 
-  function cartTotalSum() {
-    const e = cartItems.reduce((e, { price }) => e + price, 0);
-    return e;
+  function overviewTotalAmount() {
+    const a = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+    return a;
   }
 
-  const totalAmount = cartTotalSum();
+  const productTotal = overviewTotalAmount();
   return (
     <div className="checkout-overview-container">
       <ul>
         {cartItems.map((product) => (
-          <div className="overview-flex">
+          <div className="overview-checkout-flex">
+            <div className="checkout-amounts">
+              <li>
+                <div>{product.quantity}x</div>
+              </li>
+            </div>
+
             <div className="checkout-items" key={product._id}>
-              <div>{product.quantity}</div>
               <li>
                 <div>{product.name}</div>
               </li>
@@ -36,8 +41,8 @@ function CheckoutOverview() {
         ))}
 
         <li className="checkout-total">
-          Total:{` `}
-          {totalAmount} {` `}&#36;
+          Total: {""}
+          {productTotal}&#36;
         </li>
       </ul>
     </div>

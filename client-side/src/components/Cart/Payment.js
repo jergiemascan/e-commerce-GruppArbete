@@ -36,14 +36,15 @@ function Payment() {
   const {
     cart: { cartItems },
   } = state;
+
   function cartTotalSum() {
-    const e = cartItems.reduce((e, { price }) => e + price, 0);
-    return e;
+    {
+      const a = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+      return a;
+    }
   }
 
-  const totalAmount = cartTotalSum();
-
-  // Jijis ändringar ***
+  const totalAmount = cartTotalSum() + delivery.price;
 
   const orderSubmitHandler = async (e) => {
     e.preventDefault();
@@ -76,7 +77,7 @@ function Payment() {
       console.log(error);
     }
   };
-  // slutar här ***
+
   return (
     <div>
       <Navbar></Navbar>
@@ -89,7 +90,7 @@ function Payment() {
               }}
             ></div>
           </div>
-          {/*jiji ändrar till form */}{" "}
+
           <form className="form-container" onSubmit={orderSubmitHandler}>
             <div className="payment-container">
               <div className="header">
@@ -99,51 +100,46 @@ function Payment() {
                 <div className="checkout-overview-container-payment">
                   <ul>
                     <div className="overview-flex">
-                      {/* *****************jijis ändringar */}
-
-                      <div className="shopping-list">
-                        {cartItems.map((product) => (
-                          <div className="overview-flex">
-                            <div className="checkout-items" key={product._id}>
-                              <li>
-                                <div value={product.name} name="productname">
-                                  {product.name}
-                                </div>
-                              </li>
-                            </div>
-
-                            <div className="checkout-amounts">
-                              <li>
-                                <div value={product.price} name="price">
-                                  {product.price}&#36;
-                                </div>
-                              </li>
-                            </div>
+                      {cartItems.map((product) => (
+                        <div className="shopping-list">
+                          <div className="checkout-items">
+                            <li>
+                              <div value={product.name} name="productname">
+                                {product.quantity}x {product.name}
+                              </div>
+                            </li>
                           </div>
-                        ))}
-                      </div>
-                      {/******************** * jijis ändringar upp hit */}
 
-                      <div className="checkout-items">
-                        <li>Order</li>
-                        <li value={delivery.name} name="productname">
-                          Delivery Method: {delivery.name}
-                        </li>
-                        <li>Order Total:</li>
-                      </div>
-                      <div className="checkout-amounts">
-                        <li>
-                          {" "}
-                          {` `}
-                          {totalAmount} {` `}&#36;
-                        </li>
-                        <li value={delivery.price} name="deliveryCost">
-                          {" "}
-                          {delivery.price}&#36;
-                        </li>
-                        <li value={totalAmount} name="totalAmount">
-                          {totalAmount + delivery.price} &#36;
-                        </li>
+                          <div className="checkout-amounts">
+                            <li>
+                              <div value={product.price} name="price">
+                                {product.price}&#36;
+                              </div>
+                            </li>
+                          </div>
+                        </div>
+                      ))}
+                      <div className="shopping-list">
+                        <div className="checkout-items">
+                          <li value={delivery.name} name="productname">
+                            Delivery: {delivery.name}
+                          </li>
+                          <div className="payment-order-total">
+                            <li>Order Total:</li>
+                          </div>
+                        </div>
+                        <div className="checkout-amounts">
+                          <li value={delivery.price} name="deliveryCost">
+                            {" "}
+                            {delivery.price}&#36;
+                          </li>
+                          <div className="payment-order-total">
+                            <li value={totalAmount} name="totalAmount">
+                              {totalAmount}
+                              &#36;
+                            </li>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </ul>

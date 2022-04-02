@@ -118,6 +118,14 @@ body {
 
 .overview-flex {
   display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: flex-start;
+}
+
+.overview-checkout-flex {
+  display: flex;
+  flex-direction: row;
   align-content: space-around;
 }
 
@@ -188,6 +196,10 @@ body {
   margin-bottom: 2vh;
 }
 
+.payment-order-total {
+  border-top: 1px solid black;
+}
+
 .dropdowns-cvv {
   display: flex;
   align-items: center;
@@ -240,5 +252,5 @@ input:focus {
 }
 .shopping-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
