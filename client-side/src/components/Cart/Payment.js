@@ -6,13 +6,16 @@ import DropdownMonth from "./UI/DropdownMonth";
 import DropdownYear from "./UI/DropdownYear";
 import { useContext } from "react";
 import { Store } from "../../Store";
-import { FaCcVisa, FaProductHunt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { FaCcVisa } from "react-icons/fa";
 import { FaCcAmex } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa";
 import "./CheckoutForm.css";
 import axios from "axios";
 
 function Payment() {
+  const redirect = useNavigate();
+
   const [selectedMonth, setSelectedMonth] = useState("Exp Month");
   const [selectedYear, setSelectedYear] = useState("Exp Year");
 
@@ -175,7 +178,11 @@ function Payment() {
               </div>
             </div>
             <div className="checkout-footer">
-              <button className="btnPlaceOrder" type="submit">
+              <button
+                className="btnPlaceOrder"
+                type="submit"
+                onClick={() => redirect("/orderConfirmation")}
+              >
                 Place Order
               </button>
             </div>

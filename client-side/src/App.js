@@ -6,6 +6,7 @@ import Products from "./components/Products";
 import Product from "./components/Product";
 import ShoppingCart from "./components/ShoppingCart";
 import Checkout from "./components/Cart/Checkout";
+import OrderConfirmation from "./components/Cart/OrderConfirmation";
 import Payment from "./components/Cart/Payment";
 import "./index.css";
 import ErrorPage from "./components/ErrorPage";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/products/:id" element={<Product />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/checkout/:id" element={<Payment />} />
+        <Route path="/orderConfirmation" element={<OrderConfirmation />} />
         <Route path="/Cart" element={<ShoppingCart />} />
         <Route path="/*" element={<ErrorPage />} />
         {/* <Route path="/user" element={""}> */}

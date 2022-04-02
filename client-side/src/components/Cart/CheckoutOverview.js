@@ -1,5 +1,4 @@
 import React from "react";
-import ShoppingCart from "../ShoppingCart";
 import { useContext } from "react";
 import { Store } from "../../Store";
 
