@@ -10,12 +10,15 @@ const History = (props) => {
   useEffect(() => {
     async function getHistory() {
       try {
-        const userToken = localStorage.getItem("token");
+        const userId = localStorage.getItem("userId");
+
+        console.log(userId);
         const response = await Axios.get(
-          `http://localhost:3001/user/find/${userToken}`
+          `http://localhost:3001/user/find/${userId}`
         );
         console.log(response.data.data);
         setState(response.data.data);
+        console.log(response);
         if (response.data.data === 0) {
           setState(response.data.message);
         }
@@ -23,7 +26,6 @@ const History = (props) => {
         console.log(error);
       }
     }
-
     getHistory();
   }, []);
 
@@ -39,14 +41,19 @@ const History = (props) => {
           <div className="history" key={article._id}>
             <h2 className="order-date">
               Order Date: {moment(article.createdAt).format("YYYY-MM-DD")}
-              <h2 className="h4Articles">Articles</h2>
             </h2>
+
             <ul className="shopping-history-list">
+              <h2 className="h4Articles">Articles</h2>
               {article.products
                 ? article.products.map((e) => (
                     <li key={e._id}>
-                      <h4 className="h4Articles">Product name: {e.name}</h4>
-                      {/* <h4 className="h4Articles">Quantity: {e.quantity}</h4> */}
+                      <h4 className="h4Articles">
+                        Product name:{" "}
+                        <span className="span-history"> {e.name}</span>
+                      </h4>
+
+                      <h4 className="h4Articles">Quantity: {e.quantity}</h4>
                       <h4 className="h4Articles">
                         Unit Price:{" "}
                         <span className="articles">{e.price} kr</span>
@@ -54,6 +61,18 @@ const History = (props) => {
                     </li>
                   ))
                 : ""}
+              <div className="article-list">
+                <h4>Delivery method:</h4>
+                <span className="span-history">
+                  {article.deliveryCost.name}
+                </span>
+              </div>
+              <div className="article-list">
+                <h4> Price:</h4>
+                <span className="shipping-fee">
+                  {article.deliveryCost.price} kr
+                </span>
+              </div>
               <h2 className="h4Articles">
                 Total Amount:
                 {/* <span className="articles">{article.totalAmount} kr</span> */}

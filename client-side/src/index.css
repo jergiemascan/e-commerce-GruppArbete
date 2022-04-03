@@ -225,6 +225,7 @@ li {
   padding: 1rem;
   margin-bottom: 1rem;
   border-bottom: 2px solid #ccc;
+  font-size: 14px;
 }
 
 .h4Articles {
@@ -292,4 +293,19 @@ input {
 }
 .btn-auth:hover {
   background-color: #2cb1bc;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+}
+.span-history {
+  padding-left: 1rem;
+  font-weight: 400;
+}
+.shipping-fee {
+  margin-left: auto;
+  padding-right: 1rem;
+  font-weight: bold;
 }

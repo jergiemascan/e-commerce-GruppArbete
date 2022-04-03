@@ -8,6 +8,7 @@ const Profile = (props) => {
   const redirect = useNavigate();
   const signoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     redirect("/");
   };
 

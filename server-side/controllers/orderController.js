@@ -19,14 +19,14 @@ module.exports.createOrder = catchAsync(async (req, res) => {
 // hämtar users history of orders
 
 module.exports.getOrders = catchAsync(async (req, res) => {
-  const getOrders = await orderSchema.find({ userToken: req.params.userToken });
-
+  const getOrders = await orderSchema.find({ userId: req.params.userId });
   // if (!getOrders) {
   //   res.status(404).send({
   //     status: "failed",
   //     message: "No order found",
   //   });
   //   return;
+
   // }
 
   res.status(201).json({

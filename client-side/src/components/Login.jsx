@@ -20,17 +20,20 @@ function Login(props) {
     isError: false,
     message: "",
   });
+
   const redirect = useNavigate();
 
   // Temporary function just to test form vaildation
+
   const onSubmit = async (data) => {
     try {
       const response = await Axios.post("http://localhost:3001/user/login", {
         email: data.email,
         password: data.password,
       });
-      console.log(response);
+      console.log(response.data.user);
       if (response?.data?.status === "success") {
+        localStorage.setItem("userId", response.data.user);
         localStorage.setItem("token", response.data.token);
         setTimeout(() => {
           redirect("/products");
@@ -68,18 +71,6 @@ function Login(props) {
         <input
           {...register("password", {
             required: "Write your password",
-            minLength: {
-              value: 5,
-              message: "Minimum length is 5.",
-            },
-            maxLength: {
-              value: 10,
-              message: "Maximum length is 10",
-            },
-            pattern: {
-              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,10}$/,
-              message: "Needs upper/lowercase and number",
-            },
           })}
           type="password"
           placeholder="Password"

@@ -51,30 +51,25 @@ function Payment() {
 
   const orderSubmitHandler = async (e) => {
     e.preventDefault();
-    const userToken = localStorage.getItem("token");
+    // const userToken = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    console.log(userId);
     try {
       console.log(delivery);
 
-      const res = await axios.post(
-        "http://localhost:3001/user/order",
-        {
-          // cartItems innehåller delivery och totalAmount :) (Se linje 54 och 55)
-          userToken: userToken,
-          products: cartItems,
-          deliveryCost: delivery,
-          totalAmount: totalAmount,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${userToken}`,
-          },
-        }
-      );
+      const res = await axios.post("http://localhost:3001/user/order", {
+        // cartItems innehåller delivery och totalAmount :) (Se linje 54 och 55)
+        userId: userId,
+        products: cartItems,
+        deliveryCost: delivery,
+        totalAmount: totalAmount,
+      });
       if (res?.data?.status === "success") {
         console.log("Order submitted");
         ctxDispatch({
           type: "CLEAR_CART",
         });
+        redirect("/orderConfirmation");
       }
     } catch (error) {
       console.log(error);
@@ -181,7 +176,7 @@ function Payment() {
               <button
                 className="btnPlaceOrder"
                 type="submit"
-                onClick={() => redirect("/orderConfirmation")}
+                // onClick={() => redirect("/orderConfirmation")}
               >
                 Place Order
               </button>
