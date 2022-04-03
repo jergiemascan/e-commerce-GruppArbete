@@ -28,19 +28,29 @@ const Navbar = (props) => {
     setShowLoginModal(false);
   };
 
+  const token = localStorage.getItem("token");
+
   return (
     <nav className="nav">
       {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
       {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
-      <div className="icon-profile">
-        <Profile onShowHist={props.onShow} />
-      </div>
-      <div onClick={showModalRegHandler} className="register">
-        REGISTER
-      </div>
-      <div onClick={showModalLoginHandler} className="sign-in">
-        SIGN IN
-      </div>
+
+      {token && (
+        <div className="icon-profile">
+          <Profile onShowHist={props.onShow} />
+        </div>
+      )}
+
+      {!token && (
+        <div className="nav">
+          <div onClick={showModalRegHandler} className="register">
+            REGISTER
+          </div>
+          <div onClick={showModalLoginHandler} className="sign-in">
+            SIGN IN
+          </div>
+        </div>
+      )}
       <Link to="/">HOMEPAGE</Link>
       <Link to="/products">PRODUCTS</Link>
       <Link to="/Cart">

@@ -17,8 +17,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/checkout" element={<Checkout />} />
@@ -26,10 +24,6 @@ function App() {
         <Route path="/orderConfirmation" element={<OrderConfirmation />} />
         <Route path="/Cart" element={<ShoppingCart />} />
         <Route path="/*" element={<ErrorPage />} />
-        {/* <Route path="/user" element={""}> */}
-        <Route path="/profile" element={<Profile />} />
-
-        {/* </Route> */}
       </Routes>
     </Router>
   );
