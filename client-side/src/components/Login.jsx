@@ -31,9 +31,10 @@ function Login(props) {
       });
       console.log(response);
       if (response?.data?.status === "success") {
+        
         localStorage.setItem("token", response.data.token);
         setTimeout(() => {
-          redirect("/products");
+          // redirect("/products");
         }, 1000);
         console.log("Welcome!");
       }

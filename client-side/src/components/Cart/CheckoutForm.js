@@ -8,6 +8,9 @@ import Register from "../Register";
 import "./CheckoutForm.css";
 
 function CheckoutForm() {
+  const userToken = localStorage.getItem("token");
+  const [getToken, setGetToken] = useState(userToken);
+
   const [step, setStep] = useState(0);
   const [inputData, setInputData] = useState({
     email: "",
@@ -27,6 +30,7 @@ function CheckoutForm() {
     };
     const hideModalRegHandler = () => {
       setShowRegModal(false);
+      step === 2;
     };
 
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -35,21 +39,38 @@ function CheckoutForm() {
     };
     const hideModalHandler = () => {
       setShowLoginModal(false);
+      step === 2;
     };
 
     if (step === 0) {
       return <CheckoutOverview></CheckoutOverview>;
-    } else if (step === 1) {
+    } else if (step === 1 && !userToken) {
       return (
         <div className="reg-login">
-          {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
-          {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
+          {showRegModal && (
+            <Register
+              onCloseReg={hideModalRegHandler}
+              onSubmit={() => showRegModal(false)}
+            />
+          )}
+          {showLoginModal && (
+            <Login
+              onCloseLogin={hideModalHandler}
+              onSubmit={() => showLoginModal(false)}
+            />
+          )}
           <button onClick={showModalRegHandler} className="btn-reg">
             REGISTER
           </button>
           <button onClick={showModalLoginHandler} className="btn-reg">
             SIGN IN
           </button>
+        </div>
+      );
+    } else if (step === 1) {
+      return (
+        <div className="reg-login">
+          <h1>You are logged in as{}</h1>
         </div>
       );
     } else if (step === 2) {

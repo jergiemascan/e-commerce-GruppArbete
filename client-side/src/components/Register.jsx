@@ -41,7 +41,7 @@ function Register(props) {
       if (response?.data?.status === "success") {
         localStorage.setItem("token", response.data.token);
         setTimeout(() => {
-          redirect("/products");
+          // redirect("/products");
         }, 1000);
         console.log("Registered!");
       }

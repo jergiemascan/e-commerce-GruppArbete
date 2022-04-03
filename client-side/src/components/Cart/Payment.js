@@ -75,6 +75,7 @@ function Payment() {
         ctxDispatch({
           type: "CLEAR_CART",
         });
+        redirect("/orderConfirmation");
       }
     } catch (error) {
       console.log(error);
@@ -178,11 +179,7 @@ function Payment() {
               </div>
             </div>
             <div className="checkout-footer">
-              <button
-                className="btnPlaceOrder"
-                type="submit"
-                onClick={() => redirect("/orderConfirmation")}
-              >
+              <button className="btnPlaceOrder" type="submit">
                 Place Order
               </button>
             </div>
