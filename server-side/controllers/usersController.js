@@ -23,6 +23,7 @@ module.exports.register = catchAsync(async (req, res) => {
   res.status(201).json({
     status: "success",
     token,
+    user: newUser._id,
     data: {
       user: newUser,
     },

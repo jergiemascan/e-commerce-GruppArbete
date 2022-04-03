@@ -39,6 +39,7 @@ function Register(props) {
         confirmPassword: data.confirmPassword,
       });
       if (response?.data?.status === "success") {
+        localStorage.setItem("userId", response.data.user);
         localStorage.setItem("token", response.data.token);
         setTimeout(() => {
           redirect("/products");

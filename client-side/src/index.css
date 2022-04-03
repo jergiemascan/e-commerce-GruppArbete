@@ -227,7 +227,10 @@ li {
   border-bottom: 2px solid #ccc;
   font-size: 14px;
 }
-
+.order-found {
+  text-align: center;
+  margin-top: 2rem;
+}
 .h4Articles {
   display: flex;
   flex-direction: row;

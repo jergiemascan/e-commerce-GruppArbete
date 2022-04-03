@@ -20,14 +20,6 @@ module.exports.createOrder = catchAsync(async (req, res) => {
 
 module.exports.getOrders = catchAsync(async (req, res) => {
   const getOrders = await orderSchema.find({ userId: req.params.userId });
-  // if (!getOrders) {
-  //   res.status(404).send({
-  //     status: "failed",
-  //     message: "No order found",
-  //   });
-  //   return;
-
-  // }
 
   res.status(201).json({
     status: "success",

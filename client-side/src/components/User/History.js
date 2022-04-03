@@ -12,14 +12,13 @@ const History = (props) => {
       try {
         const userId = localStorage.getItem("userId");
 
-        console.log(userId);
         const response = await Axios.get(
           `http://localhost:3001/user/find/${userId}`
         );
         console.log(response.data.data);
         setState(response.data.data);
         console.log(response);
-        if (response.data.data === 0) {
+        if (response.data.data === null) {
           setState(response.data.message);
         }
       } catch (error) {
@@ -36,7 +35,9 @@ const History = (props) => {
       </div>
       <h2 className="orderH2">Order History</h2>
       <div>
-        {/* {state && <h2>{"No order found"}</h2>} */}
+        {state.length === 0 && (
+          <h2 className="order-found">{"No order found"}</h2>
+        )}
         {state.map((article) => (
           <div className="history" key={article._id}>
             <h2 className="order-date">
