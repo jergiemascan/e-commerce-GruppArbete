@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
   const [isHover, setIsHover] = useState(false);
-  // Halverar namnet i en array, förnamn blir index 0
-  const firstName = localStorage.fullName.split(" ")[0];
+  // Kraschar React, löser det imorgon
+  // const firstName = localStorage.fullName.split(" ")[0];
 
   const redirect = useNavigate();
   const signoutHandler = () => {
@@ -27,7 +27,10 @@ const Profile = (props) => {
       </div>
       {isHover && (
         <ul className="dropdown-content">
-          <li className="dropdown-item">{firstName}</li>
+          <li className="dropdown-item">
+            {localStorage.fullName ? localStorage.fullName : "Not logged in"}
+          </li>
+          {/* <li className="dropdown-item">{firstName}</li> */}
           <li className="dropdown-item" onClick={props.onShowHist}>
             History
           </li>
