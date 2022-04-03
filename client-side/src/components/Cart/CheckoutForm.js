@@ -64,7 +64,10 @@ function CheckoutForm() {
     } else if (step === 1) {
       return (
         <div className="reg-login">
-          <h1>You are logged in as: {localStorage.fullName}.</h1>
+          <h1>
+            You are logged in as: {localStorage.fullName}. Your contact details
+            are saved in your profile.{" "}
+          </h1>
         </div>
       );
     } else if (step === 2) {
