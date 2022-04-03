@@ -82,32 +82,6 @@ li {
   overflow-x: hidden;
   position: relative;
 }
-@media only screen and (max-width: 1580px) {
-  .main {
-    gap: 2rem;
-  }
-
-  .left {
-    padding-left: 0px;
-  }
-}
-@media only screen and (max-width: 1430px) {
-  .main {
-    gap: 2rem;
-  }
-  .bild1 {
-    max-width: 50%;
-  }
-}
-@media only screen and (max-width: 1270px) {
-  .bild1 {
-    max-width: 45%;
-  }
-
-  .right {
-    width: 70%;
-  }
-}
 
 /* footer */
 .footer {
@@ -312,3 +286,90 @@ input {
   padding-right: 1rem;
   font-weight: bold;
 }
+
+.explore-collection {
+  margin: 5vh 0;
+  min-height: 20vw;
+  text-align: center;
+}
+.offer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 3rem;
+}
+.h3-home {
+  margin-bottom: 1.5rem;
+}
+.img-home {
+  width: 100px;
+}
+.span-home {
+  max-width: 40rem;
+}
+@media only screen and (max-width: 106rem) {
+  .main {
+    gap: 2rem;
+  }
+  .bild1 {
+    max-width: 50%;
+  }
+  .left {
+    padding-left: 0px;
+  }
+  .right {
+    padding: 2rem;
+  }
+  .h1-home {
+    font-size: 34px;
+    margin-right: 3rem;
+  }
+  .h1-home,
+  .h2-home {
+    text-align: left;
+    margin-left: 0;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 96.5rem) {
+  .footer {
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 84rem) {
+  .footer {
+    margin-top: 0;
+  }
+  .nav {
+    height: 8vw !important;
+  }
+  .h1-home {
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .h2-home {
+    font-weight: 400;
+    font-size: 24px;
+  }
+  .right {
+    width: 70%;
+  }
+
+  .btn {
+    width: 25%;
+    font-size: 14px;
+  }
+  .home-p {
+    font-size: 16px;
+  }
+}
+/* @media only screen and (max-width: 79rem) {
+  .bild1 {
+    max-width: 45%;
+  }
+
+  .right {
+    width: 70%;
+  }
+} */
