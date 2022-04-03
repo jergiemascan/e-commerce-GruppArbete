@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
   const [isHover, setIsHover] = useState(false);
+  // Halverar namnet i en array, förnamn blir index 0
+  const firstName = localStorage.fullName.split(" ")[0];
 
   const redirect = useNavigate();
   const signoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("fullName");
     redirect("/");
   };
 
@@ -24,7 +27,7 @@ const Profile = (props) => {
       </div>
       {isHover && (
         <ul className="dropdown-content">
-          <li className="dropdown-item">Jiji Mascan</li>
+          <li className="dropdown-item">{firstName}</li>
           <li className="dropdown-item" onClick={props.onShowHist}>
             History
           </li>

@@ -25,9 +25,9 @@ function App() {
         <Route path="/checkout/:id" element={<Payment />} />
         <Route path="/orderConfirmation" element={<OrderConfirmation />} />
         <Route path="/Cart" element={<ShoppingCart />} />
-        <Route path="/*" element={<ErrorPage />} />
         {/* <Route path="/user" element={""}> */}
         <Route path="/profile" element={<Profile />} />
+        <Route path="/*" element={<ErrorPage />} />
 
         {/* </Route> */}
       </Routes>

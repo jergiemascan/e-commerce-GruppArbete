@@ -8,8 +8,9 @@ import Register from "../Register";
 import "./CheckoutForm.css";
 
 function CheckoutForm() {
-  const userToken = localStorage.getItem("token");
-  const [getToken, setGetToken] = useState(userToken);
+  // Behövs inte det här, skriv bara localStorage.token
+  // const userToken = localStorage.getItem("token");
+  // const [getToken, setGetToken] = useState(userToken);
 
   const [step, setStep] = useState(0);
   const [inputData, setInputData] = useState({
@@ -30,7 +31,6 @@ function CheckoutForm() {
     };
     const hideModalRegHandler = () => {
       setShowRegModal(false);
-      step === 2;
     };
 
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -39,26 +39,20 @@ function CheckoutForm() {
     };
     const hideModalHandler = () => {
       setShowLoginModal(false);
-      step === 2;
     };
 
     if (step === 0) {
       return <CheckoutOverview></CheckoutOverview>;
-    } else if (step === 1 && !userToken) {
+    } else if (step === 1 && !localStorage.token) {
       return (
         <div className="reg-login">
           {showRegModal && (
             <Register
               onCloseReg={hideModalRegHandler}
-              onSubmit={() => showRegModal(false)}
+              // onClick={hideModalRegHandler}
             />
           )}
-          {showLoginModal && (
-            <Login
-              onCloseLogin={hideModalHandler}
-              onSubmit={() => showLoginModal(false)}
-            />
-          )}
+          {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
           <button onClick={showModalRegHandler} className="btn-reg">
             REGISTER
           </button>
@@ -70,7 +64,7 @@ function CheckoutForm() {
     } else if (step === 1) {
       return (
         <div className="reg-login">
-          <h1>You are logged in as{}</h1>
+          <h1>You are logged in as: {localStorage.fullName}.</h1>
         </div>
       );
     } else if (step === 2) {

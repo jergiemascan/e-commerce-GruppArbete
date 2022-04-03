@@ -19,10 +19,12 @@ module.exports.register = catchAsync(async (req, res) => {
     confirmPassword: hashedPassword,
   });
   const token = signToken(newUser._id);
+  const fullName = `${req.body.firstname} ${req.body.lastname}`;
   console.log("new user registered!");
   res.status(201).json({
     status: "success",
     token,
+    fullName,
     data: {
       user: newUser,
     },
@@ -47,12 +49,15 @@ module.exports.login = catchAsync(async (req, res, next) => {
       .json({ status: "failed", message: "Incorrect email or password" });
     return;
   }
-
+  console.log(user);
   ///In place of userId - jwt
   const token = signToken(user._id);
+  const fullName = `${user.firstname} ${user.lastname}`;
+  console.log(fullName);
   res.status(200).json({
     status: "success",
     token,
+    fullName,
     message: "Welcome,you have logged in!",
   });
 });

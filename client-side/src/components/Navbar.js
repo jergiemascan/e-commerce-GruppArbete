@@ -28,6 +28,8 @@ const Navbar = (props) => {
     setShowLoginModal(false);
   };
 
+  // onClick={localStorage.token && props.onCloseLogin()}
+
   return (
     <nav className="nav">
       {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
