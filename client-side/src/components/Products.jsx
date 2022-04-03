@@ -68,8 +68,8 @@ function Products(props) {
               </div>
             ))}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
