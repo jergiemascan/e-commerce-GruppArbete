@@ -37,32 +37,34 @@ function Products(props) {
       <div className="products-wrapper">
         {show && <History onClose={hideHistory} />}
 
-        <h1>Plans & Supplements</h1>
+        <h1 className="plans">Plans and Supplements</h1>
         <div className="products-container">
           {products.length > 0 &&
             products.map((product, index) => (
               <div className={`cards products-card-${index}`} key={product._id}>
-                <img
-                  onClick={() => {
-                    redirect(`/products/${product._id}`);
-                  }}
-                  className="products-image"
-                  src={`assets/${product.photo}`}
-                  alt="What up baby"
-                />
-                <h2>{product.name}</h2>
-                <h2>&#36;{product.price}</h2>
-                <p className="shortdesc">{product.shortdesc}</p>
-
+                <div className="specs">
+                  <img
+                    onClick={() => {
+                      redirect(`/products/${product._id}`);
+                    }}
+                    className="products-image"
+                    src={`assets/${product.photo}`}
+                    alt="What up baby"
+                  />
+                  <h3>{product.name}</h3>
+                  <h3>{product.price}&#36;</h3>
+                  <Link
+                    className="product-link-btn"
+                    to={`/products/${product._id}`}
+                  >
+                    <button className="btn-product">Read more..</button>
+                  </Link>
+                </div>
+                {/* <p className="shortdesc">{product.shortdesc}</p> */}
+                {/* 
                 <button className="btn-product" type="submit">
                   Add to cart
-                </button>
-                <Link
-                  className="product-link-btn"
-                  to={`/products/${product._id}`}
-                >
-                  Read more..
-                </Link>
+                </button> */}
               </div>
             ))}
         </div>

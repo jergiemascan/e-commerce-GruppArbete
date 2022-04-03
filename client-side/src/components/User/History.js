@@ -34,7 +34,7 @@ const History = (props) => {
         <IoMdClose onClick={props.onClose} />
       </div>
       <h2 className="orderH2">Order History</h2>
-      <div>
+      <div className="history-scroll">
         {state.length === 0 && (
           <h2 className="order-found">{"No order found"}</h2>
         )}

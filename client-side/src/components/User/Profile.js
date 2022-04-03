@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
   const [isHover, setIsHover] = useState(false);
-
   const redirect = useNavigate();
+
   const signoutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
@@ -21,7 +21,7 @@ const Profile = (props) => {
       }}
     >
       <div className="dropdown-icon">
-        <IoPersonOutline />
+        <IoPersonOutline className="profile" />
       </div>
       {isHover && (
         <ul className="dropdown-content">
