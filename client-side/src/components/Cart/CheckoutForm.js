@@ -1,26 +1,14 @@
 import React, { useState } from "react";
 import CheckoutOverview from "./CheckoutOverview";
 import Delivery from "./Delivery";
-
+import Contact from "./Contact";
 import Login from "../Login";
 import Register from "../Register";
 
 import "./CheckoutForm.css";
 
 function CheckoutForm() {
-  // Behövs inte det här, skriv bara localStorage.token
-  // const userToken = localStorage.getItem("token");
-  // const [getToken, setGetToken] = useState(userToken);
-
   const [step, setStep] = useState(0);
-  const [inputData, setInputData] = useState({
-    email: "",
-    firstname: "",
-    lastname: "",
-    street: "",
-    zipcode: "",
-    city: "",
-  });
 
   const CheckoutForms = ["Overview", "Contact", "Choose Delivery Method"];
 
@@ -63,12 +51,44 @@ function CheckoutForm() {
       );
     } else if (step === 1) {
       return (
-        <div className="reg-login">
-          <h1>
-            You are logged in as: {localStorage.fullName}. Your contact details
-            are saved in your profile.{" "}
-          </h1>
-        </div>
+        <Contact></Contact>
+        // <div className="reg-login">
+        //   <div className="contact-container">
+        //     <input
+        //       type="text"
+        //       value={localStorage.fullName}
+        //       onChange={(event) =>
+        //         setInputData({ ...inputData, firstname: event.target.value })
+        //       }
+        //     ></input>
+
+        //     <input
+        //       type="text"
+        //       placeholder="Street"
+        //       value={inputData.street}
+        //       onChange={(event) =>
+        //         setInputData({ ...inputData, street: event.target.value })
+        //       }
+        //     ></input>
+
+        //     <input
+        //       type="text"
+        //       placeholder="City"
+        //       value={inputData.city}
+        //       onChange={(event) =>
+        //         setInputData({ ...inputData, city: event.target.value })
+        //       }
+        //     ></input>
+        //     <input
+        //       type="number"
+        //       placeholder="ZIP Code"
+        //       value={inputData.zipcode}
+        //       onChange={(event) =>
+        //         setInputData({ ...inputData, zipcode: event.target.value })
+        //       }
+        //     ></input>
+        //   </div>
+        // </div>
       );
     } else if (step === 2) {
       return <Delivery></Delivery>;
@@ -97,7 +117,7 @@ function CheckoutForm() {
         <div className="body">{DisplayCurrentStep()}</div>
         <div className="checkout-footer">
           <button
-            disabled={step === 0}
+            hidden={step === 0}
             onClick={() => {
               setStep((currStep) => currStep - 1);
             }}
@@ -105,7 +125,11 @@ function CheckoutForm() {
             Prev
           </button>
           <button
-            hidden={step === CheckoutForms.length - 1}
+            // disabled={step === 1 && !localStorage.token}
+            hidden={
+              step === CheckoutForms.length - 1 ||
+              (step === 1 && !localStorage.token)
+            }
             onClick={() => {
               setStep((currStep) => currStep + 1);
             }}

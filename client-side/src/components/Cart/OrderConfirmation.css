@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.confirmation-table-container {
+    margin-bottom: 20vh;
+}
+
 .confirmation-form {
     border: 1px solid black;
     border-top: 0ch;
