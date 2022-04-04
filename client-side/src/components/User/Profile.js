@@ -13,7 +13,11 @@ const Profile = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("fullName");
-    redirect("/");
+    if (window.location.href === "http://localhost:3000") {
+      window.location.reload(true);
+    } else {
+      redirect("/");
+    }
   };
 
   return (
