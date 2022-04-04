@@ -69,7 +69,7 @@ function Products(props) {
             ))}
         </div>
       </div>
-      <Footer />
+      {products.length > 5 && <Footer />}
     </div>
   );
 }
