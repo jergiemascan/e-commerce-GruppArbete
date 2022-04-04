@@ -202,6 +202,7 @@ CtaWrapper {
 .history-scroll {
   max-height: 30rem;
   overflow: scroll;
+  overflow-x: auto;
 }
 .orderH2 {
   display: flex;

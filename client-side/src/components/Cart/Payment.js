@@ -12,12 +12,22 @@ import { FaCcAmex } from "react-icons/fa";
 import { FaCcMastercard } from "react-icons/fa";
 import "./CheckoutForm.css";
 import axios from "axios";
+import History from "../User/History";
 
 function Payment() {
   const redirect = useNavigate();
 
   const [selectedMonth, setSelectedMonth] = useState("Exp Month");
   const [selectedYear, setSelectedYear] = useState("Exp Year");
+
+  // kopplar jijis histori här
+  const [show, setShow] = useState(false);
+  const showHistory = () => {
+    setShow(true);
+  };
+  const hideHistory = () => {
+    setShow(false);
+  };
 
   let { id } = useParams();
   const [delivery, setDelivery] = useState([]);
@@ -49,7 +59,7 @@ function Payment() {
 
   const orderSubmitHandler = async (e) => {
     e.preventDefault();
-    // const userToken = localStorage.getItem("token");
+
     const userId = localStorage.getItem("userId");
     console.log(userId);
     try {
@@ -76,7 +86,8 @@ function Payment() {
 
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar onShow={showHistory}></Navbar>
+      {show && <History onClose={hideHistory} />}
       <div className="wrapper">
         <div className="form">
           <div className="progressbar">
@@ -86,7 +97,6 @@ function Payment() {
               }}
             ></div>
           </div>
-
           <form className="form-container" onSubmit={orderSubmitHandler}>
             <div className="payment-container">
               <div className="header">
