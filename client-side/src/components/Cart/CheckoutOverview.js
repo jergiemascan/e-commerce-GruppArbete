@@ -19,7 +19,7 @@ function CheckoutOverview() {
     <div className="checkout-overview-container">
       <ul>
         {cartItems.map((product) => (
-          <div className="overview-checkout-flex">
+          <div className="overview-checkout-flex" key={product._id}>
             <div className="checkout-amounts">
               <li>
                 <div>{product.quantity}x</div>

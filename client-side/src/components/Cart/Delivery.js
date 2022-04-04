@@ -34,7 +34,7 @@ function Delivery() {
           onClick={() => {
             redirect(`/checkout/${delivery._id}`);
           }}
-          key={delivery.id}
+          key={delivery._id}
           className="choose-delivery"
         >
           <h1>{delivery.name}</h1>
