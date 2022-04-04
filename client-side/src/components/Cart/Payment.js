@@ -41,10 +41,8 @@ function Payment() {
   } = state;
 
   function cartTotalSum() {
-    {
-      const a = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
-      return a;
-    }
+    const a = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+    return a;
   }
 
   const totalAmount = cartTotalSum() + delivery.price;

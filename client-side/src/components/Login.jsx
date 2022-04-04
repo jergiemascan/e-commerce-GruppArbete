@@ -34,6 +34,7 @@ function Login(props) {
       console.log(response.data.user);
       if (response?.data?.status === "success") {
         localStorage.setItem("fullName", response.data.fullName);
+        localStorage.setItem("userId", response.data.user);
         localStorage.setItem("token", response.data.token);
         // hideModalHandler();
         setTimeout(() => {
