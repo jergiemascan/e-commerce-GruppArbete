@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
@@ -7,6 +7,7 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useContext } from "react";
 import { Store } from "../../Store";
 import "./OrderConfirmation.css";
+import History from "../User/History";
 
 function OrderConfirmation() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -16,9 +17,19 @@ function OrderConfirmation() {
 
   const redirect = useNavigate();
 
+  // kopplar jijis histori här
+  const [show, setShow] = useState(false);
+  const showHistory = () => {
+    setShow(true);
+  };
+  const hideHistory = () => {
+    setShow(false);
+  };
+
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar onShow={showHistory}></Navbar>
+      {show && <History onClose={hideHistory} />}
       <div className="confirmation-container">
         <div>
           <GiConfirmed color="blue" fontSize="7em"></GiConfirmed>
