@@ -40,6 +40,7 @@ function Register(props) {
       });
       if (response?.data?.status === "success") {
         localStorage.setItem("fullName", response.data.fullName);
+        localStorage.setItem("userId", response.data.userId);
         localStorage.setItem("token", response.data.token);
         setTimeout(() => {
           // redirect("/products");

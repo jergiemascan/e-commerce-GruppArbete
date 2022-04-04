@@ -24,7 +24,8 @@ function Login(props) {
   const redirect = useNavigate();
 
   // Temporary function just to test form vaildation
-
+  const userId = localStorage.getItem("userId");
+  console.log(userId);
   const onSubmit = async (data) => {
     try {
       const response = await Axios.post("http://localhost:3001/user/login", {
@@ -34,6 +35,7 @@ function Login(props) {
       console.log(response.data.user);
       if (response?.data?.status === "success") {
         localStorage.setItem("fullName", response.data.fullName);
+        localStorage.setItem("userId", response.data.user);
         localStorage.setItem("token", response.data.token);
         // hideModalHandler();
         setTimeout(() => {
