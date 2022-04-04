@@ -4,8 +4,8 @@
 }
 
 .red {
-  color: rgb(211, 37, 37) !important;
-  display: inline-block !important;
+  color: rgb(211, 37, 37);
+  float: right;
 }
 
 .small {
@@ -27,4 +27,8 @@
 
 .quantity {
   padding: 10px;
+}
+
+.pad {
+  margin-right: 20px;
 }
