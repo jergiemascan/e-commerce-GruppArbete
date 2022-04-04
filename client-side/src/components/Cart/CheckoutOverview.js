@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Store } from "../../Store";
+import History from "../User/History";
 
 function CheckoutOverview() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
