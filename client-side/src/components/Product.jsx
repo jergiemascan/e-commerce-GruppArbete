@@ -57,18 +57,20 @@ function Product() {
         />
         <div className="product-card">
           <h1>{product.name}</h1>
-          <h2>&#36;{product.price}</h2>
+          <h2> &#36;{product.price}</h2>
           <p className="product-desc">{product.desc}</p>
-          <button
-            onClick={addToCartHandler}
-            className=" btn-product "
-            type="submit"
-          >
-            Add to cart
-          </button>
-          <Link className="product-link-btn" to={"/products"}>
-            Back to products..
-          </Link>
+          <div>
+            <button
+              onClick={addToCartHandler}
+              className=" btn-product "
+              type="submit"
+            >
+              Add to cart
+            </button>
+            <Link className="product-link-btn" to={"/products"}>
+              Back to products..
+            </Link>
+          </div>
         </div>
       </div>
       <Footer />

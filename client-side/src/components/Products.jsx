@@ -52,7 +52,7 @@ function Products(props) {
                     alt="What up baby"
                   />
                   <h3>{product.name}</h3>
-                  <h3>{product.price}&#36;</h3>
+                  <h3>&#36;{product.price}</h3>
                   <Link
                     className="product-link-btn"
                     to={`/products/${product._id}`}

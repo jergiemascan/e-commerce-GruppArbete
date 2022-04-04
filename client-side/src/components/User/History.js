@@ -57,7 +57,7 @@ const History = (props) => {
                       <h4 className="h4Articles">Quantity: {e.quantity}</h4>
                       <h4 className="h4Articles">
                         Unit Price:{" "}
-                        <span className="articles">{e.price} kr</span>
+                        <span className="articles">{e.price} &#36;</span>
                       </h4>
                     </li>
                   ))
@@ -71,13 +71,13 @@ const History = (props) => {
               <div className="article-list">
                 <h4> Price:</h4>
                 <span className="shipping-fee">
-                  {article.deliveryCost.price} kr
+                  {article.deliveryCost.price} &#36;
                 </span>
               </div>
               <h2 className="h4Articles">
                 Total Amount:
                 {/* <span className="articles">{article.totalAmount} kr</span> */}
-                <span className="articles">{article.totalAmount} kr</span>
+                <span className="articles">{article.totalAmount}&#36;</span>
               </h2>
             </ul>
           </div>

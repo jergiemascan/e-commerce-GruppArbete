@@ -44,7 +44,7 @@ const Home = () => {
         <div className="offer">
           <div className="home-div">
             <img src={HeartIcon} alt="heart icon" className="img-home"></img>
-            <h3 className="h3-home"> HEALTH SUPPLIMENTS</h3>
+            <h3 className="h3-home"> HEALTH SUPPLEMENTS</h3>
             <p className="span-home">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
               mollitia, molestiae quas vel sint commodi repudianda.
