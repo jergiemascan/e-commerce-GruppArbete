@@ -32,30 +32,21 @@ function OrderConfirmation() {
       </div>
 
       <div className="confirmation-table-container">
-        <div className="yourOrder">
-          <h3>Your Order:</h3>
-        </div>
+        <div className="yourOrder"></div>
         <div className="confirmationTable-and-button">
           <div className="confirmation-form">
-            {cartItems.map((product) => (
-              <div className="overview-checkout-flex">
-                <div className="checkout-amounts">
-                  <li>
-                    <div>
-                      <h2>{product.quantity}x</h2>
-                    </div>
-                  </li>
-                </div>
-
-                <div className="checkout-items" key={product._id}>
-                  <li>
-                    <div>
-                      <h2>{product.name}</h2>
-                    </div>
-                  </li>
-                </div>
+            <div className="overview-checkout-flex">
+              <div className="checkout-amounts">
+                <li>
+                  <div>
+                    <p className="orderHistoryName">
+                      You can find your order in the orderhistory under your
+                      profile.
+                    </p>
+                  </div>
+                </li>
               </div>
-            ))}
+            </div>
           </div>
           <div className="backToHomeBtn">
             <div>

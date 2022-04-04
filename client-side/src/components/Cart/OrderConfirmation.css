@@ -5,7 +5,6 @@
     align-items: center;
 }
 
-
 .confirmation-form {
     border: 1px solid black;
     border-top: 0ch;
@@ -16,12 +15,17 @@
 .overview-checkout-flex {
     display: flex;
     justify-content: flex-start;
+    margin-left: 3vh;
 }
 
 .confirmationTable-and-button {
     margin-top: 4vh;
     display: flex;
     justify-content: space-between;
+}
+
+.orderHistoryName {
+    font-family: cursive;
 }
 
 .yourOrder {

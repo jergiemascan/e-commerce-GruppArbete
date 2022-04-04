@@ -8,6 +8,10 @@ import Register from "../Register";
 import "./CheckoutForm.css";
 
 function CheckoutForm() {
+  // Behövs inte det här, skriv bara localStorage.token
+  // const userToken = localStorage.getItem("token");
+  // const [getToken, setGetToken] = useState(userToken);
+
   const [step, setStep] = useState(0);
   const [inputData, setInputData] = useState({
     email: "",
@@ -39,10 +43,15 @@ function CheckoutForm() {
 
     if (step === 0) {
       return <CheckoutOverview></CheckoutOverview>;
-    } else if (step === 1) {
+    } else if (step === 1 && !localStorage.token) {
       return (
         <div className="reg-login">
-          {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
+          {showRegModal && (
+            <Register
+              onCloseReg={hideModalRegHandler}
+              // onClick={hideModalRegHandler}
+            />
+          )}
           {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
           <button onClick={showModalRegHandler} className="btn-reg">
             REGISTER
@@ -50,6 +59,15 @@ function CheckoutForm() {
           <button onClick={showModalLoginHandler} className="btn-reg">
             SIGN IN
           </button>
+        </div>
+      );
+    } else if (step === 1) {
+      return (
+        <div className="reg-login">
+          <h1>
+            You are logged in as: {localStorage.fullName}. Your contact details
+            are saved in your profile.{" "}
+          </h1>
         </div>
       );
     } else if (step === 2) {

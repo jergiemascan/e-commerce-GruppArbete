@@ -173,11 +173,7 @@ function Payment() {
               </div>
             </div>
             <div className="checkout-footer">
-              <button
-                className="btnPlaceOrder"
-                type="submit"
-                // onClick={() => redirect("/orderConfirmation")}
-              >
+              <button className="btnPlaceOrder" type="submit">
                 Place Order
               </button>
             </div>

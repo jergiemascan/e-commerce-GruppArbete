@@ -39,10 +39,10 @@ function Register(props) {
         confirmPassword: data.confirmPassword,
       });
       if (response?.data?.status === "success") {
-        localStorage.setItem("userId", response.data.user);
+        localStorage.setItem("fullName", response.data.fullName);
         localStorage.setItem("token", response.data.token);
         setTimeout(() => {
-          redirect("/products");
+          // redirect("/products");
         }, 1000);
         console.log("Registered!");
       }
@@ -145,7 +145,11 @@ function Register(props) {
           autoComplete="off"
         />
         <div>
-          <button type="submit" className="btn-auth">
+          <button
+            onClick={localStorage.token && props.onCloseReg()}
+            type="submit"
+            className="btn-auth"
+          >
             Register
           </button>
         </div>

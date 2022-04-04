@@ -33,10 +33,11 @@ function Login(props) {
       });
       console.log(response.data.user);
       if (response?.data?.status === "success") {
-        localStorage.setItem("userId", response.data.user);
+        localStorage.setItem("fullName", response.data.fullName);
         localStorage.setItem("token", response.data.token);
+        // hideModalHandler();
         setTimeout(() => {
-          redirect("/products");
+          // redirect("/products");
         }, 1000);
         console.log("Welcome!");
       }
@@ -82,7 +83,12 @@ function Login(props) {
           </div>
         )}
         <div>
-          <button type="submit" className="btn-auth">
+          <button
+            onClick={localStorage.token && props.onCloseLogin()}
+            // onClick={localStorage.token && props.onCloseLogin()}
+            type="submit"
+            className="btn-auth"
+          >
             Login
           </button>
         </div>

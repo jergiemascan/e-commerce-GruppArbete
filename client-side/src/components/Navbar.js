@@ -29,6 +29,7 @@ const Navbar = (props) => {
   };
 
   const token = localStorage.getItem("token");
+  // onClick={localStorage.token && props.onCloseLogin()}
 
   return (
     <nav className="nav">
