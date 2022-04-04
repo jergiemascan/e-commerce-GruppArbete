@@ -98,9 +98,9 @@ function Payment() {
                     <div className="overview-flex">
                       {cartItems.map((product) => (
                         <div className="shopping-list">
-                          <div className="checkout-items">
+                          <div className="checkout-items" key={product._id}>
                             <li>
-                              <div value={product.name} name="productname">
+                              <div name="productname">
                                 {product.quantity}x {product.name}
                               </div>
                             </li>
@@ -108,29 +108,22 @@ function Payment() {
 
                           <div className="checkout-amounts">
                             <li>
-                              <div value={product.price} name="price">
-                                {product.price}&#36;
-                              </div>
+                              <div name="price">{product.price}&#36;</div>
                             </li>
                           </div>
                         </div>
                       ))}
                       <div className="shopping-list">
                         <div className="checkout-items">
-                          <li value={delivery.name} name="productname">
-                            Delivery: {delivery.name}
-                          </li>
+                          <li name="productname">Delivery: {delivery.name}</li>
                           <div className="payment-order-total">
                             <li>Order Total:</li>
                           </div>
                         </div>
                         <div className="checkout-amounts">
-                          <li value={delivery.price} name="deliveryCost">
-                            {" "}
-                            {delivery.price}&#36;
-                          </li>
+                          <li name="deliveryCost"> {delivery.price}&#36;</li>
                           <div className="payment-order-total">
-                            <li value={totalAmount} name="totalAmount">
+                            <li name="totalAmount">
                               {totalAmount}
                               &#36;
                             </li>
