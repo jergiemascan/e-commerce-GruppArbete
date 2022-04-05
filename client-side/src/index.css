@@ -173,21 +173,18 @@ footer {
   right: 25%;
   transform: translate(-5%, -50%);
   max-width: 50rem;
+  max-height: 30rem;
   margin: 0 auto;
   overflow: hidden;
   background-color: #fff;
-  padding: 2rem 3rem;
+  padding: 2rem 3rem 3rem 3rem;
   border-radius: 5px;
   box-shadow: 0 3rem 8rem 0.5rem rgba(0, 0, 0, 0.15);
-  min-height: 50vh;
   display: flex;
   flex-direction: column;
   z-index: 100;
 }
-CtaWrapper {
-  max-height: 50rem;
-  overflow: scroll;
-}
+
 .closeModal {
   font-size: 2rem;
   cursor: pointer;
@@ -201,8 +198,12 @@ CtaWrapper {
 }
 .history-scroll {
   max-height: 30rem;
-  overflow: scroll;
-  overflow-x: auto;
+  overflow-y: scroll;
+}
+.history-scroll::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+  /* background: #ff0000; */
 }
 .orderH2 {
   display: flex;

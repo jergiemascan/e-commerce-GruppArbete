@@ -76,7 +76,6 @@ const History = (props) => {
               </div>
               <h2 className="h4Articles">
                 Total Amount:
-                {/* <span className="articles">{article.totalAmount} kr</span> */}
                 <span className="articles">{article.totalAmount}&#36;</span>
               </h2>
             </ul>
