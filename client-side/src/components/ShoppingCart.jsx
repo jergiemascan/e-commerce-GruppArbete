@@ -37,7 +37,7 @@ const ShoppingCart = () => {
               src={`../assets/${product.photo}`}
               alt="Supplement"
             />
-            <div className="cart-price">Price: {product.price}&#36;</div>
+            <div className="cart-price">Price:{product.price}&#36;</div>
             <button
               onClick={() => updateCartHandler(product, product.quantity - 1)}
               disabled={product.quantity === 1}
