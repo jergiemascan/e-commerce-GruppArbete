@@ -49,5 +49,34 @@
     margin-right: 5vh;
 }
 
+@media only screen and (max-width: 768px) {
+    .orderConfirmationResponse {
+        display: flex;
+        flex-direction: column;
+    }
+  
+  }
+
+  @media only screen and (max-width: 675px) {
+    .orderConfirmationResponse {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .confirmationTable-and-button {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .backToHomeBtn {
+        margin-top: 3vh;
+    }
+  
+  }
+  
+ 
+
+
+
 
 
