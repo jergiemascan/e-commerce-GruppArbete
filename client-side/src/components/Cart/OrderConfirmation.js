@@ -29,52 +29,55 @@ function OrderConfirmation() {
   return (
     <div>
       <Navbar onShow={showHistory}></Navbar>
-      {show && <History onClose={hideHistory} />}
-      <div className="confirmation-container">
-        <div>
-          <GiConfirmed color="blue" fontSize="7em"></GiConfirmed>
+      <div className="orderConfirmationResponse">
+        {show && <History onClose={hideHistory} />}
+        <div className="confirmation-container">
+          <div>
+            <GiConfirmed color="blue" fontSize="7em"></GiConfirmed>
+          </div>
+          <div>
+            <h1>Thank You For Your Purchase! </h1>
+          </div>
+          <div>
+            <h2>Your Order Has Been Sent.</h2>
+          </div>
         </div>
-        <div>
-          <h1>Thank You For Your Purchase! </h1>
-        </div>
-        <div>
-          <h2>Your Order Has Been Sent.</h2>
-        </div>
-      </div>
 
-      <div className="confirmation-table-container">
-        <div className="yourOrder"></div>
-        <div className="confirmationTable-and-button">
-          <div className="confirmation-form">
-            <div className="overview-checkout-flex">
-              <div className="checkout-amounts">
-                <li>
-                  <div>
-                    <p className="orderHistoryName">
-                      You can find your order in the orderhistory under your
-                      profile.
-                    </p>
-                  </div>
-                </li>
+        <div className="confirmation-table-container">
+          <div className="yourOrder"></div>
+          <div className="confirmationTable-and-button">
+            <div className="confirmation-form">
+              <div className="overview-checkout-flex">
+                <div className="checkout-amounts">
+                  <li>
+                    <div>
+                      <p className="orderHistoryName">
+                        You can find your order in the orderhistory under your
+                        profile.
+                      </p>
+                    </div>
+                  </li>
+                </div>
+              </div>
+            </div>
+            <div className="backToHomeBtn">
+              <div>
+                <button className="backToHomeBtn">
+                  <BsArrowLeftCircleFill
+                    onClick={() => redirect("/")}
+                    color="blue"
+                    fontSize="4em"
+                  ></BsArrowLeftCircleFill>
+                </button>
+              </div>
+              <div>
+                <p>HOMEPAGE</p>
               </div>
             </div>
           </div>
-          <div className="backToHomeBtn">
-            <div>
-              <button className="backToHomeBtn">
-                <BsArrowLeftCircleFill
-                  onClick={() => redirect("/")}
-                  color="blue"
-                  fontSize="4em"
-                ></BsArrowLeftCircleFill>
-              </button>
-            </div>
-            <div>
-              <p>HOMEPAGE</p>
-            </div>
-          </div>
         </div>
       </div>
+
       <Footer></Footer>
     </div>
   );
