@@ -51,7 +51,7 @@ const ShoppingCart = () => {
               +
             </button>
             <button
-              className="right"
+              className="right1"
               onClick={() => removeItemHandler(product)}
             >
               Remove from cart
