@@ -5,7 +5,7 @@ import History from "./User/History";
 import "./Products.css";
 import Footer from "./Footer";
 
-function Products(props) {
+function Products() {
   const [products, setProducts] = useState([]);
   const redirect = useNavigate();
 
