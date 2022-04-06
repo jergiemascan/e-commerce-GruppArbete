@@ -2,12 +2,7 @@
 
 .wrapper {
   background: rgb(187, 203, 245);
-  /* background: radial-gradient(
-    circle,
-    rgb(14, 144, 250) 0%,
-    rgb(152, 86, 240) 84%,
-    rgb(28, 42, 170) 100%
-  );*/
+
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -107,10 +102,6 @@ body {
 .checkout-overview-container ul {
   list-style-type: none;
 }
-
-/* .checkout-items {
-  border-top: 1px solid black;
-} */
 
 .checkout-total {
   border-top: 1px solid black;
@@ -230,8 +221,6 @@ input:hover {
 input:focus {
   border: 3px solid blue;
 }
-
-/* jijis css design ändringar */
 
 .reg-login {
   display: flex;

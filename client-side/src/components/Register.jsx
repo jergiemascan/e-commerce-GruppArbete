@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Modal from "./Modal";
 
@@ -20,15 +19,11 @@ function Register(props) {
     },
   });
 
-  // This is for checking if password is === to confirmPassword
   const password = useRef({});
   password.current = watch("password", "");
 
-  // Error message I used in case registration didn't work
   const [message, setMessage] = useState("");
-  const redirect = useNavigate();
 
-  // Temporary function just to test form vaildation
   const onSubmit = async (data) => {
     try {
       const response = await Axios.post("http://localhost:3001/user/register", {
@@ -41,13 +36,9 @@ function Register(props) {
       if (response?.data?.status === "success") {
         localStorage.setItem("fullName", response.data.fullName);
         localStorage.setItem("userId", response.data.user);
-        localStorage.setItem("token", response.data.token);
-        setTimeout(() => {
-          // redirect("/products");
-        }, 1000);
-        console.log("Registered!");
+      } else {
+        setMessage("Someting went wrong :(");
       }
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -147,7 +138,7 @@ function Register(props) {
         />
         <div>
           <button
-            onClick={localStorage.token && props.onCloseReg()}
+            onClick={localStorage.userId && props.onCloseReg()}
             type="submit"
             className="btn-auth"
           >

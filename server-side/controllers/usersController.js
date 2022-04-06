@@ -1,13 +1,6 @@
-const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const catchAsync = require("../utility/catchAsync");
-
-const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-};
 
 module.exports.register = catchAsync(async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -18,12 +11,9 @@ module.exports.register = catchAsync(async (req, res) => {
     password: hashedPassword,
     confirmPassword: hashedPassword,
   });
-  const token = signToken(newUser._id);
   const fullName = `${req.body.firstname} ${req.body.lastname}`;
-  console.log("new user registered!");
   res.status(201).json({
     status: "success",
-    token,
     user: newUser._id,
     fullName,
     data: {
@@ -50,14 +40,9 @@ module.exports.login = catchAsync(async (req, res, next) => {
       .json({ status: "failed", message: "Incorrect email or password" });
     return;
   }
-  console.log(user);
-  ///In place of userId - jwt
-  const token = signToken(user._id);
   const fullName = `${user.firstname} ${user.lastname}`;
-  console.log(fullName);
   res.status(200).json({
     status: "success",
-    token,
     user: user._id,
     fullName,
     message: "Welcome,you have logged in!",

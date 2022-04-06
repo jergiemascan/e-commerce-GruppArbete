@@ -16,7 +16,6 @@ module.exports.createProduct = catchAsync(async (req, res) => {
       product: product,
     },
   });
-  console.log("result", response);
   return;
 });
 

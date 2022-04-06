@@ -4,15 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
   const [isHover, setIsHover] = useState(false);
-  // Kraschar React, löser det imorgon
-  // const firstName = localStorage.fullName.split(" ")[0];
 
   const redirect = useNavigate();
 
   const signoutHandler = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("fullName");
+    localStorage.clear();
     if (window.location.href === "http://localhost:3000/") {
       window.location.reload(true);
     } else {
@@ -36,7 +32,6 @@ const Profile = (props) => {
           <li className="dropdown-item">
             {localStorage.fullName ? localStorage.fullName : "Not logged in"}
           </li>
-          {/* <li className="dropdown-item">{firstName}</li> */}
           <li className="dropdown-item" onClick={props.onShowHist}>
             History
           </li>

@@ -11,13 +11,10 @@ const History = (props) => {
     async function getHistory() {
       try {
         const userId = localStorage.getItem("userId");
-
         const response = await Axios.get(
           `http://localhost:3001/user/find/${userId}`
         );
-        console.log(response.data.data);
         setState(response.data.data);
-        console.log(response);
         if (response.data.data === null) {
           setState(response.data.message);
         }

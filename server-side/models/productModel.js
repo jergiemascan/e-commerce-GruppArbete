@@ -19,7 +19,6 @@ const productSchema = new mongoose.Schema({
 
   photo: {
     type: String,
-    // required: [true,'Please add a product photo']
   },
 });
 

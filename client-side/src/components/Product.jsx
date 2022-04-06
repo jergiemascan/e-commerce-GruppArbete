@@ -35,7 +35,6 @@ function Product() {
     });
   };
 
-  // kopplar jijis histori här
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);

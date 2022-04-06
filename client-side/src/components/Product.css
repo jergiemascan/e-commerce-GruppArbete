@@ -2,14 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 50px; */
   gap: 3rem;
   margin: 3rem;
 }
 
 .product-desc {
-  /* width: 500px;
-  margin: 30px; */
   letter-spacing: 1px;
 }
 .product-card {

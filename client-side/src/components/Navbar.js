@@ -11,7 +11,6 @@ const Navbar = (props) => {
   const { state } = useContext(Store);
   const { cart } = state;
 
-  // modal
   const [showRegModal, setShowRegModal] = useState(false);
   const showModalRegHandler = () => {
     setShowRegModal(true);
@@ -28,21 +27,18 @@ const Navbar = (props) => {
     setShowLoginModal(false);
   };
 
-  const token = localStorage.getItem("token");
-  // onClick={localStorage.token && props.onCloseLogin()}
-
   return (
     <nav className="nav">
       {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
       {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
 
-      {token && (
+      {localStorage.userId && (
         <div className="icon-profile">
           <Profile onShowHist={props.onShow} />
         </div>
       )}
 
-      {!token && (
+      {!localStorage.userId && (
         <div className="nav">
           <div onClick={showModalRegHandler} className="register">
             REGISTER

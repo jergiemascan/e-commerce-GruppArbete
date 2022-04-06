@@ -22,8 +22,6 @@ export default function ProgressBar() {
       },
     ],
     stepChangeCallback: (step) => {
-      console.log("change", step);
-
       return true;
     },
     finishCallback: () => {

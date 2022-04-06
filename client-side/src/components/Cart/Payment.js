@@ -20,7 +20,6 @@ function Payment() {
   const [selectedMonth, setSelectedMonth] = useState("Exp Month");
   const [selectedYear, setSelectedYear] = useState("Exp Year");
 
-  // kopplar jijis histori här
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);
@@ -61,19 +60,15 @@ function Payment() {
     e.preventDefault();
 
     const userId = localStorage.getItem("userId");
-    console.log(userId);
-    try {
-      console.log(delivery);
 
+    try {
       const res = await axios.post("http://localhost:3001/user/order", {
-        // cartItems innehåller delivery och totalAmount :) (Se linje 54 och 55)
         userId: userId,
         products: cartItems,
         deliveryCost: delivery,
         totalAmount: totalAmount,
       });
       if (res?.data?.status === "success") {
-        console.log("Order submitted");
         ctxDispatch({
           type: "CLEAR_CART",
         });

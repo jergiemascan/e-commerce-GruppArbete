@@ -9,7 +9,6 @@ function Products(props) {
   const [products, setProducts] = useState([]);
   const redirect = useNavigate();
 
-  // kopplar jijis histori här
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);
@@ -36,7 +35,6 @@ function Products(props) {
       <Navbar onShow={showHistory} />
       <div className="products-wrapper">
         {show && <History onClose={hideHistory} />}
-
         <h1 className="plans">Plans and Supplements</h1>
         <div className="products-container">
           {products.length > 0 &&
@@ -60,11 +58,6 @@ function Products(props) {
                     <button className="btn-product">Read more..</button>
                   </Link>
                 </div>
-                {/* <p className="shortdesc">{product.shortdesc}</p> */}
-                {/* 
-                <button className="btn-product" type="submit">
-                  Add to cart
-                </button> */}
               </div>
             ))}
         </div>

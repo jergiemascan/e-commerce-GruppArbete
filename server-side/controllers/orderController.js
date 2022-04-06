@@ -12,7 +12,6 @@ module.exports.createOrder = catchAsync(async (req, res) => {
     },
     message: "Order created!",
   });
-  console.log("result", order);
   return;
 });
 

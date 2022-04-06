@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import History from "./User/History";
 
 const Home = () => {
-  // kopplar jijis histori här
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);
@@ -31,8 +30,12 @@ const Home = () => {
           <h1 className="h1-home">LET'S LEVEL UP YOUR GAME</h1>
           <h2 className="h2-home">Fitness Ready</h2>
           <p className="home-p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br></br>
-            Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            OPTIHEALTH is THE fitness e-commerce store with high quality
+            products and fitness plans to help clients achieve their ultimate
+            goals and improve their overall health. With our products and plans
+            you will go from Zero to Hero and become a much better, healthier
+            and more OPTIMIZED You! Check out our amazing products and let the
+            journey begin!
           </p>
           <Link to="/products" className="btn">
             <IoCartOutline className="btn-cart" /> SHOP NOW
@@ -40,22 +43,24 @@ const Home = () => {
         </div>
       </main>
       <div className="explore-collection">
-        {/* <h2 className="h2-collection">EXPLORE OUR EXCLUSIVE PRODUCTS</h2> */}
         <div className="offer">
           <div className="home-div">
             <img src={HeartIcon} alt="heart icon" className="img-home"></img>
             <h3 className="h3-home"> HEALTH SUPPLEMENTS</h3>
             <p className="span-home">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudianda.
+              Our health supplements are made of highest quality ingredients, no
+              added artificial sugars or any GMO's. You won't find any products
+              like ours.
             </p>
           </div>
           <div className="home-div">
             <img src={thoraxIcon} alt="body icon" className="img-home"></img>
             <h3 className="h3-home"> OUR PLANS</h3>
             <p className="span-home">
-              Veritatis obcaecati tenetur iure eius earum ut molestias
-              architecto voluptate aliquam nihil, eveniet aliquid.
+              Our fitness plans are perfectly designed to maximize your goals
+              and gainz in form of immune health, weight gain or loss and muscle
+              mass and brain function. We even offer 1-1 coaching calls. Check
+              our plans to see more!
             </p>
           </div>
         </div>

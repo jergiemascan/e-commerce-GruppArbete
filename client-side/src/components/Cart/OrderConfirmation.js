@@ -10,14 +10,12 @@ import "./OrderConfirmation.css";
 import History from "../User/History";
 
 function OrderConfirmation() {
-  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { state } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
 
   const redirect = useNavigate();
-
-  // kopplar jijis histori här
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);

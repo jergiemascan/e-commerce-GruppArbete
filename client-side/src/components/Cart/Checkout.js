@@ -5,7 +5,6 @@ import CheckoutForm from "./CheckoutForm";
 import History from "../User/History";
 
 const Checkout = (props) => {
-  // kopplar jijis histori här
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);

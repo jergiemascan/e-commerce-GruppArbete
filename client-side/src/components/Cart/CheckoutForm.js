@@ -31,15 +31,10 @@ function CheckoutForm() {
 
     if (step === 0) {
       return <CheckoutOverview></CheckoutOverview>;
-    } else if (step === 1 && !localStorage.token) {
+    } else if (step === 1 && !localStorage.userId) {
       return (
         <div className="reg-login">
-          {showRegModal && (
-            <Register
-              onCloseReg={hideModalRegHandler}
-              // onClick={hideModalRegHandler}
-            />
-          )}
+          {showRegModal && <Register onCloseReg={hideModalRegHandler} />}
           {showLoginModal && <Login onCloseLogin={hideModalHandler} />}
           <button onClick={showModalRegHandler} className="btn-reg">
             REGISTER
@@ -50,46 +45,7 @@ function CheckoutForm() {
         </div>
       );
     } else if (step === 1) {
-      return (
-        <Contact></Contact>
-        // <div className="reg-login">
-        //   <div className="contact-container">
-        //     <input
-        //       type="text"
-        //       value={localStorage.fullName}
-        //       onChange={(event) =>
-        //         setInputData({ ...inputData, firstname: event.target.value })
-        //       }
-        //     ></input>
-
-        //     <input
-        //       type="text"
-        //       placeholder="Street"
-        //       value={inputData.street}
-        //       onChange={(event) =>
-        //         setInputData({ ...inputData, street: event.target.value })
-        //       }
-        //     ></input>
-
-        //     <input
-        //       type="text"
-        //       placeholder="City"
-        //       value={inputData.city}
-        //       onChange={(event) =>
-        //         setInputData({ ...inputData, city: event.target.value })
-        //       }
-        //     ></input>
-        //     <input
-        //       type="number"
-        //       placeholder="ZIP Code"
-        //       value={inputData.zipcode}
-        //       onChange={(event) =>
-        //         setInputData({ ...inputData, zipcode: event.target.value })
-        //       }
-        //     ></input>
-        //   </div>
-        // </div>
-      );
+      return <Contact></Contact>;
     } else if (step === 2) {
       return <Delivery></Delivery>;
     }
@@ -125,10 +81,9 @@ function CheckoutForm() {
             Prev
           </button>
           <button
-            // disabled={step === 1 && !localStorage.token}
             hidden={
               step === CheckoutForms.length - 1 ||
-              (step === 1 && !localStorage.token)
+              (step === 1 && !localStorage.userId)
             }
             onClick={() => {
               setStep((currStep) => currStep + 1);

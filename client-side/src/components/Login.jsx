@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
 function Login(props) {
@@ -20,28 +19,19 @@ function Login(props) {
     isError: false,
     message: "",
   });
+  const [message, setMessage] = useState("");
 
-  const redirect = useNavigate();
-
-  // Temporary function just to test form vaildation
-  const userId = localStorage.getItem("userId");
-  console.log(userId);
   const onSubmit = async (data) => {
     try {
       const response = await Axios.post("http://localhost:3001/user/login", {
         email: data.email,
         password: data.password,
       });
-      console.log(response.data.user);
       if (response?.data?.status === "success") {
         localStorage.setItem("fullName", response.data.fullName);
         localStorage.setItem("userId", response.data.user);
-        localStorage.setItem("token", response.data.token);
-        // hideModalHandler();
-        setTimeout(() => {
-          // redirect("/products");
-        }, 1000);
-        console.log("Welcome!");
+      } else {
+        setMessage("Someting went wrong :(");
       }
     } catch (error) {
       console.log(error);
@@ -86,8 +76,7 @@ function Login(props) {
         )}
         <div>
           <button
-            onClick={localStorage.token && props.onCloseLogin()}
-            // onClick={localStorage.token && props.onCloseLogin()}
+            onClick={localStorage.userId && props.onCloseLogin()}
             type="submit"
             className="btn-auth"
           >

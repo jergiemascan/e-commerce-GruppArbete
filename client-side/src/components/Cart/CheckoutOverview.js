@@ -4,7 +4,7 @@ import { Store } from "../../Store";
 import History from "../User/History";
 
 function CheckoutOverview() {
-  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { state } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;

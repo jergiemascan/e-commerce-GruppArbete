@@ -13,26 +13,18 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello from Node server👋🏻" });
 });
 
-// hämta all routes
 const products = require("./routes/productRoute");
 app.use("/", products);
 
 const deliveries = require("./routes/deliveryRoute");
 app.use("/", deliveries);
 
-// register och login
-// to use:(post) http://localhost:3001/user/register eller
-// to use:(post) http://localhost:3001/user/login eller
 const userAuth = require("./routes/userRoute");
 app.use("/user", userAuth);
 
-// order
-// to use:(post) http://localhost:3001/user/order eller
-// to use:(Get) http://localhost:3001/user/:userId
 const order = require("./routes/orderRoute");
 app.use("/user", order);
 
-// Db connection
 const db = async () => {
   try {
     await mongoose.connect(process.env.DATABASE);
