@@ -9,17 +9,16 @@ import "./Product.css";
 function Product() {
   let { id } = useParams();
   const [product, setProduct] = useState([]);
-  const fetchProduct = async () => {
-    try {
-      const response = await fetch(`http://localhost:3001/products/${id}`);
-      let product = await response.json();
-      setProduct(product);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/products/${id}`);
+        let product = await response.json();
+        setProduct(product);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     fetchProduct();
   }, []);
 
