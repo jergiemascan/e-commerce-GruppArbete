@@ -13,7 +13,7 @@ const ShoppingCart = () => {
     cart: { cartItems },
   } = state;
 
-  const updateCartHandler = async (product, quantity) => {
+  const updateCartHandler = (product, quantity) => {
     ctxDispatch({
       type: "CART_ADD_ITEM",
       payload: { ...product, quantity },
