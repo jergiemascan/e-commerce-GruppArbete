@@ -27,15 +27,13 @@
   cursor: pointer;
 }
 
-h1 {
-  text-align: center;
-}
 .plans {
   text-transform: uppercase;
   padding: 5rem 0 0 0;
   font-weight: 600;
   letter-spacing: 1px;
   color: #7baf42;
+  text-align: center;
 }
 
 .cards {

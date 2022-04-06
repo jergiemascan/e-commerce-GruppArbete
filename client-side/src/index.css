@@ -34,7 +34,6 @@ li {
   font-family: inherit;
 }
 
-/* landing-page */
 .left {
   display: flex;
   padding-left: 5rem;
@@ -43,13 +42,14 @@ li {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 45rem;
 }
 
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 25%;
   padding: 16px 0;
   border-radius: 25px;
   border: none;
@@ -340,18 +340,19 @@ input {
   .h1-home {
     font-size: 34px;
     margin-right: 3rem;
+    text-align: start !important;
   }
   .h1-home,
   .h2-home {
     text-align: left;
-    margin-left: 0;
+    margin-left: 0 !important;
     padding: 0;
   }
 }
 
 @media only screen and (max-width: 96.5rem) {
   .footer {
-    margin-top: 0;
+    margin-top: 18rem;
   }
   .btn {
     width: 30%;
@@ -363,7 +364,7 @@ input {
 }
 @media only screen and (max-width: 84rem) {
   .footer {
-    margin-top: 8rem;
+    margin-top: 10rem;
     height: 25vh;
   }
   .nav {

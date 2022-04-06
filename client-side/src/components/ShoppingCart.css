@@ -1,15 +1,21 @@
 .shopping {
   display: grid;
   justify-content: center;
+  margin-top: 5rem;
+  text-align: center;
 }
 
 .red {
-  color: rgb(211, 37, 37);
   float: right;
+  background-color: rgb(211, 37, 37);
+  color: #fff;
+  position: relative;
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
 .small {
-  height: 300px;
+  height: 150px;
 }
 
 .cart-list {
@@ -19,10 +25,25 @@
 .checkout-cart {
   border: 1px solid black;
   padding: 20px;
+  margin-bottom: 3rem;
 }
 
 .right1 {
-  float: right;
+  margin-left: 2rem;
+  width: 130px;
+  height: 40px;
+  margin-top: 1rem;
+  padding: 10px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: #ee5253;
+  border: none;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+.right1:hover {
+  background-color: #ff6b6b;
 }
 
 .quantity {
@@ -31,4 +52,29 @@
 
 .pad {
   margin-right: 20px;
+}
+
+.btn-checkout {
+  width: 120px;
+  height: 40px;
+  background-color: rgb(36, 101, 187);
+  font-weight: bold;
+  color: white;
+  border: none;
+  margin-top: 1rem;
+  padding: 10px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-checkout:hover {
+  background-color: blue;
+}
+
+.h2-cart {
+  margin-bottom: 2rem;
+}
+.cart-price {
+  margin-top: 1.5rem;
+  font-weight: 500;
 }

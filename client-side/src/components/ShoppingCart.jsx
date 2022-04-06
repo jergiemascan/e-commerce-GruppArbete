@@ -28,7 +28,7 @@ const ShoppingCart = () => {
     <section className="height">
       <Navbar />
       <div className="shopping">
-        <h2>Your bag:</h2>
+        <h2 className="h2-cart">Your bag:</h2>
         {cartItems.map((product) => (
           <div className="cart-list" key={product._id}>
             <h3>{product.name}</h3>
@@ -37,7 +37,7 @@ const ShoppingCart = () => {
               src={`../assets/${product.photo}`}
               alt="Supplement"
             />
-            <div>{product.price}&#36;</div>
+            <div className="cart-price">Price: {product.price}&#36;</div>
             <button
               onClick={() => updateCartHandler(product, product.quantity - 1)}
               disabled={product.quantity === 1}
@@ -64,7 +64,12 @@ const ShoppingCart = () => {
             {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
           </h3>
 
-          <button onClick={() => redirect("/checkout")}>Checkout</button>
+          <button
+            className="btn-checkout"
+            onClick={() => redirect("/checkout")}
+          >
+            Checkout
+          </button>
         </div>
       </div>
 

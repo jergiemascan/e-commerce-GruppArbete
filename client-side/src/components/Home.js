@@ -30,12 +30,11 @@ const Home = () => {
           <h1 className="h1-home">LET'S LEVEL UP YOUR GAME</h1>
           <h2 className="h2-home">Fitness Ready</h2>
           <p className="home-p">
-            OPTIHEALTH is THE fitness e-commerce store with high quality
-            products and fitness plans to help clients achieve their ultimate
-            goals and improve their overall health. With our products and plans
-            you will go from Zero to Hero and become a much better, healthier
-            and more OPTIMIZED You! Check out our amazing products and let the
-            journey begin!
+            OPTIHEALTH is a fitness e-commerce store with high quality products
+            and fitness plans to help clients achieve their ultimate goals and
+            improve their overall health. With our products and plans you will
+            go from Zero to Hero, live healthier and OPTIMIZED. Check out our
+            amazing products and let the journey begin!
           </p>
           <Link to="/products" className="btn">
             <IoCartOutline className="btn-cart" /> SHOP NOW
@@ -57,10 +56,9 @@ const Home = () => {
             <img src={thoraxIcon} alt="body icon" className="img-home"></img>
             <h3 className="h3-home"> OUR PLANS</h3>
             <p className="span-home">
-              Our fitness plans are perfectly designed to maximize your goals
-              and gainz in form of immune health, weight gain or loss and muscle
-              mass and brain function. We even offer 1-1 coaching calls. Check
-              our plans to see more!
+              Our fitness plans are perfectly designed to maximize your goals,
+              loss weight, rebust immune system, muscle mass and brain function.
+              We also offer 1-1 coaching calls.
             </p>
           </div>
         </div>
