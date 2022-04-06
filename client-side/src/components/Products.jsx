@@ -8,7 +8,6 @@ import Footer from "./Footer";
 function Products() {
   const [products, setProducts] = useState([]);
   const redirect = useNavigate();
-
   const [show, setShow] = useState(false);
   const showHistory = () => {
     setShow(true);
@@ -16,7 +15,6 @@ function Products() {
   const hideHistory = () => {
     setShow(false);
   };
-
   useEffect(() => {
     async function fetchProductData() {
       try {
